@@ -27,9 +27,19 @@ namespace ClienteWPF.ProxyWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="ServicioCursoSoap", Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RelatedEnd))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StructuralObject))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Category[]))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityKeyMember[]))]
     public partial class ServicioCurso : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback HelloWorld1OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CategoriasOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CategoriasYProductosOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -73,6 +83,15 @@ namespace ClienteWPF.ProxyWS {
         public event HelloWorldCompletedEventHandler HelloWorldCompleted;
         
         /// <remarks/>
+        public event HelloWorld1CompletedEventHandler HelloWorld1Completed;
+        
+        /// <remarks/>
+        public event CategoriasCompletedEventHandler CategoriasCompleted;
+        
+        /// <remarks/>
+        public event CategoriasYProductosCompletedEventHandler CategoriasYProductosCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string HelloWorld() {
             object[] results = this.Invoke("HelloWorld", new object[0]);
@@ -100,6 +119,91 @@ namespace ClienteWPF.ProxyWS {
         }
         
         /// <remarks/>
+        [System.Web.Services.WebMethodAttribute(MessageName="HelloWorld1")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWordConNombre", RequestElementName="HelloWordConNombre", RequestNamespace="http://tempuri.org/", ResponseElementName="HelloWordConNombreResponse", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("HelloWordConNombreResult")]
+        public string HelloWorld(string nombre) {
+            object[] results = this.Invoke("HelloWorld1", new object[] {
+                        nombre});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void HelloWorld1Async(string nombre) {
+            this.HelloWorld1Async(nombre, null);
+        }
+        
+        /// <remarks/>
+        public void HelloWorld1Async(string nombre, object userState) {
+            if ((this.HelloWorld1OperationCompleted == null)) {
+                this.HelloWorld1OperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorld1OperationCompleted);
+            }
+            this.InvokeAsync("HelloWorld1", new object[] {
+                        nombre}, this.HelloWorld1OperationCompleted, userState);
+        }
+        
+        private void OnHelloWorld1OperationCompleted(object arg) {
+            if ((this.HelloWorld1Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.HelloWorld1Completed(this, new HelloWorld1CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Categorias", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Category[] Categorias() {
+            object[] results = this.Invoke("Categorias", new object[0]);
+            return ((Category[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CategoriasAsync() {
+            this.CategoriasAsync(null);
+        }
+        
+        /// <remarks/>
+        public void CategoriasAsync(object userState) {
+            if ((this.CategoriasOperationCompleted == null)) {
+                this.CategoriasOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCategoriasOperationCompleted);
+            }
+            this.InvokeAsync("Categorias", new object[0], this.CategoriasOperationCompleted, userState);
+        }
+        
+        private void OnCategoriasOperationCompleted(object arg) {
+            if ((this.CategoriasCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CategoriasCompleted(this, new CategoriasCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CategoriasYProductos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ClaseCategoria[] CategoriasYProductos() {
+            object[] results = this.Invoke("CategoriasYProductos", new object[0]);
+            return ((ClaseCategoria[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CategoriasYProductosAsync() {
+            this.CategoriasYProductosAsync(null);
+        }
+        
+        /// <remarks/>
+        public void CategoriasYProductosAsync(object userState) {
+            if ((this.CategoriasYProductosOperationCompleted == null)) {
+                this.CategoriasYProductosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCategoriasYProductosOperationCompleted);
+            }
+            this.InvokeAsync("CategoriasYProductos", new object[0], this.CategoriasYProductosOperationCompleted, userState);
+        }
+        
+        private void OnCategoriasYProductosOperationCompleted(object arg) {
+            if ((this.CategoriasYProductosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CategoriasYProductosCompleted(this, new CategoriasYProductosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -116,6 +220,399 @@ namespace ClienteWPF.ProxyWS {
             }
             return false;
         }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Category : EntityObject {
+        
+        private int categoryIDField;
+        
+        private string categoryNameField;
+        
+        private string descriptionField;
+        
+        private byte[] pictureField;
+        
+        /// <comentarios/>
+        public int CategoryID {
+            get {
+                return this.categoryIDField;
+            }
+            set {
+                this.categoryIDField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public string CategoryName {
+            get {
+                return this.categoryNameField;
+            }
+            set {
+                this.categoryNameField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public string Description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] Picture {
+            get {
+                return this.pictureField;
+            }
+            set {
+                this.pictureField = value;
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Product))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Category))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class EntityObject : StructuralObject {
+        
+        private EntityKey entityKeyField;
+        
+        /// <comentarios/>
+        public EntityKey EntityKey {
+            get {
+                return this.entityKeyField;
+            }
+            set {
+                this.entityKeyField = value;
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class EntityKey {
+        
+        private string entitySetNameField;
+        
+        private string entityContainerNameField;
+        
+        private EntityKeyMember[] entityKeyValuesField;
+        
+        /// <comentarios/>
+        public string EntitySetName {
+            get {
+                return this.entitySetNameField;
+            }
+            set {
+                this.entitySetNameField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public string EntityContainerName {
+            get {
+                return this.entityContainerNameField;
+            }
+            set {
+                this.entityContainerNameField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public EntityKeyMember[] EntityKeyValues {
+            get {
+                return this.entityKeyValuesField;
+            }
+            set {
+                this.entityKeyValuesField = value;
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class EntityKeyMember {
+        
+        private string keyField;
+        
+        private object valueField;
+        
+        /// <comentarios/>
+        public string Key {
+            get {
+                return this.keyField;
+            }
+            set {
+                this.keyField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public object Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityReference))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityReferenceOfCategory))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class RelatedEnd {
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityReferenceOfCategory))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class EntityReference : RelatedEnd {
+        
+        private EntityKey entityKeyField;
+        
+        /// <comentarios/>
+        public EntityKey EntityKey {
+            get {
+                return this.entityKeyField;
+            }
+            set {
+                this.entityKeyField = value;
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class EntityReferenceOfCategory : EntityReference {
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ClaseCategoria {
+        
+        private Category categoriaField;
+        
+        private Product[] productosField;
+        
+        /// <comentarios/>
+        public Category Categoria {
+            get {
+                return this.categoriaField;
+            }
+            set {
+                this.categoriaField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public Product[] Productos {
+            get {
+                return this.productosField;
+            }
+            set {
+                this.productosField = value;
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Product : EntityObject {
+        
+        private int productIDField;
+        
+        private string productNameField;
+        
+        private System.Nullable<int> supplierIDField;
+        
+        private System.Nullable<int> categoryIDField;
+        
+        private string quantityPerUnitField;
+        
+        private System.Nullable<decimal> unitPriceField;
+        
+        private System.Nullable<short> unitsInStockField;
+        
+        private System.Nullable<short> unitsOnOrderField;
+        
+        private System.Nullable<short> reorderLevelField;
+        
+        private bool discontinuedField;
+        
+        private EntityReferenceOfCategory categoryReferenceField;
+        
+        /// <comentarios/>
+        public int ProductID {
+            get {
+                return this.productIDField;
+            }
+            set {
+                this.productIDField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public string ProductName {
+            get {
+                return this.productNameField;
+            }
+            set {
+                this.productNameField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> SupplierID {
+            get {
+                return this.supplierIDField;
+            }
+            set {
+                this.supplierIDField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CategoryID {
+            get {
+                return this.categoryIDField;
+            }
+            set {
+                this.categoryIDField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public string QuantityPerUnit {
+            get {
+                return this.quantityPerUnitField;
+            }
+            set {
+                this.quantityPerUnitField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> UnitPrice {
+            get {
+                return this.unitPriceField;
+            }
+            set {
+                this.unitPriceField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<short> UnitsInStock {
+            get {
+                return this.unitsInStockField;
+            }
+            set {
+                this.unitsInStockField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<short> UnitsOnOrder {
+            get {
+                return this.unitsOnOrderField;
+            }
+            set {
+                this.unitsOnOrderField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<short> ReorderLevel {
+            get {
+                return this.reorderLevelField;
+            }
+            set {
+                this.reorderLevelField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public bool Discontinued {
+            get {
+                return this.discontinuedField;
+            }
+            set {
+                this.discontinuedField = value;
+            }
+        }
+        
+        /// <comentarios/>
+        public EntityReferenceOfCategory CategoryReference {
+            get {
+                return this.categoryReferenceField;
+            }
+            set {
+                this.categoryReferenceField = value;
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityObject))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Product))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Category))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class StructuralObject {
     }
     
     /// <remarks/>
@@ -140,6 +637,84 @@ namespace ClienteWPF.ProxyWS {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void HelloWorld1CompletedEventHandler(object sender, HelloWorld1CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class HelloWorld1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal HelloWorld1CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void CategoriasCompletedEventHandler(object sender, CategoriasCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CategoriasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CategoriasCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Category[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Category[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    public delegate void CategoriasYProductosCompletedEventHandler(object sender, CategoriasYProductosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CategoriasYProductosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CategoriasYProductosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ClaseCategoria[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ClaseCategoria[])(this.results[0]));
             }
         }
     }

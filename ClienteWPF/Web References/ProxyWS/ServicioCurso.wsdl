@@ -12,6 +12,135 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="HelloWordConNombre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWordConNombreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWordConNombreResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Categorias">
+        <s:complexType />
+      </s:element>
+      <s:element name="CategoriasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CategoriasResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Category">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CategoryID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CategoryName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Picture" type="s:base64Binary" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CategoriasYProductos">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ClaseCategoria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="tns:Category" />
+          <s:element minOccurs="0" maxOccurs="1" name="Productos" type="tns:ArrayOfProduct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Product">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SupplierID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CategoryID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="QuantityPerUnit" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="UnitsInStock" nillable="true" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="UnitsOnOrder" nillable="true" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReorderLevel" nillable="true" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="Discontinued" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CategoryReference" type="tns:EntityReferenceOfCategory" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfCategory">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReference" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RelatedEnd">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RelatedEnd" abstract="true" />
+      <s:complexType name="ArrayOfClaseCategoria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClaseCategoria" nillable="true" type="tns:ClaseCategoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CategoriasYProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CategoriasYProductosResult" type="tns:ArrayOfClaseCategoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -20,10 +149,40 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
+  <wsdl:message name="HelloWordConNombreSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWordConNombre" />
+  </wsdl:message>
+  <wsdl:message name="HelloWordConNombreSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWordConNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasSoapIn">
+    <wsdl:part name="parameters" element="tns:Categorias" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasSoapOut">
+    <wsdl:part name="parameters" element="tns:CategoriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasYProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:CategoriasYProductos" />
+  </wsdl:message>
+  <wsdl:message name="CategoriasYProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:CategoriasYProductosResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServicioCursoSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input name="HelloWordConNombre" message="tns:HelloWordConNombreSoapIn" />
+      <wsdl:output name="HelloWordConNombre" message="tns:HelloWordConNombreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Categorias">
+      <wsdl:input message="tns:CategoriasSoapIn" />
+      <wsdl:output message="tns:CategoriasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasYProductos">
+      <wsdl:input message="tns:CategoriasYProductosSoapIn" />
+      <wsdl:output message="tns:CategoriasYProductosSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServicioCursoSoap" type="tns:ServicioCursoSoap">
@@ -37,11 +196,65 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWordConNombre" style="document" />
+      <wsdl:input name="HelloWordConNombre">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HelloWordConNombre">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Categorias">
+      <soap:operation soapAction="http://tempuri.org/Categorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasYProductos">
+      <soap:operation soapAction="http://tempuri.org/CategoriasYProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServicioCursoSoap12" type="tns:ServicioCursoSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWordConNombre" style="document" />
+      <wsdl:input name="HelloWordConNombre">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HelloWordConNombre">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Categorias">
+      <soap12:operation soapAction="http://tempuri.org/Categorias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriasYProductos">
+      <soap12:operation soapAction="http://tempuri.org/CategoriasYProductos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
