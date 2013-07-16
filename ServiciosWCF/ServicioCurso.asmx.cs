@@ -32,7 +32,8 @@ namespace ServiciosWCF
         }
 
         //Devolvemos una lista de tipo Category
-        [WebMethod]
+        //Con CacheDuration impedimos que se ataque muchas veces a la base de datos
+        [WebMethod(CacheDuration=15)]
         public System.Collections.Generic.List<Category> Categorias()
         {
             using (northwindEntities ne = new northwindEntities())
