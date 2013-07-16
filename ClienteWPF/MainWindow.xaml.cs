@@ -23,5 +23,14 @@ namespace ClienteWPF
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            //Instanciamos el servicio web
+            ProxyWS.ServicioCurso ws = new ProxyWS.ServicioCurso();
+
+            //Llamamos al método
+            MessageBox.Show( ws.HelloWorld());
+        }
     }
 }

@@ -22,5 +22,11 @@ namespace ServiciosWCF
         {
             return "Hello World";
         }
+
+        [WebMethod]
+        public string HelloWorld(string nombre)
+        {
+            return "Hello " + (string.IsNullOrWhiteSpace(nombre) ? "World" : nombre);
+        }
     }
 }
