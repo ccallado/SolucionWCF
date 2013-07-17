@@ -70,7 +70,7 @@
           <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Products" Relationship="northwindModel.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+          <NavigationProperty Name="RelProducts" Relationship="northwindModel.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -86,7 +86,7 @@
           <Property Name="UnitsOnOrder" Type="Int16" />
           <Property Name="ReorderLevel" Type="Int16" />
           <Property Name="Discontinued" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="northwindModel.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="RelCategory" Relationship="northwindModel.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
         </EntityType>
         <Association Name="FK_Products_Categories">
           <End Role="Categories" Type="northwindModel.Category" Multiplicity="0..1" />

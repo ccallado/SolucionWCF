@@ -78,5 +78,48 @@ namespace ClienteWPF
                 MessageBox.Show(cad);
             }
         }
+
+        //GetData (WCF)
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProxyWCFNormal.ServicioNormalClient  s =
+                   new ProxyWCFNormal.ServicioNormalClient ())
+            { 
+                MessageBox.Show(s.GetData (int.Parse(textBox2.Text)));
+            }
+        }
+
+        //CategoriaPorID
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                     new ProxyWCFNormal.ServicioNormalClient())
+            {
+                ProxyWCFNormal.Category cat = s.CategoriaPorID(int.Parse(textBox3.Text));
+                if (cat != null)
+                    MessageBox.Show(cat.CategoryName, "Categoría " + cat.CategoryID);
+            }
+        }
+
+        //ProductosPorCategoria
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                     new ProxyWCFNormal.ServicioNormalClient())
+            {
+                var prods = s.ProductosPorCategoria (int.Parse(textBox3.Text));
+
+                if (prods.Count() > 0)
+                {
+                    string cad = "";
+
+                    foreach (ProxyWCFNormal.Product p in prods)
+                        cad += p.ProductID + " - " +
+                               p.ProductName + "\n";
+
+                    MessageBox.Show(cad, "Productos " + prods.Count());
+                }
+            }
+        }
     }
 }

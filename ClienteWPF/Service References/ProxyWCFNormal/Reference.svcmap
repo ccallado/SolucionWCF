@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8486c82f-74c4-451d-8f35-1e226336bbe1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50564/ServicioNormal.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioNormal2.xsd" MetadataType="Schema" ID="7b6a4c49-98b8-48c5-a040-b86212f55ab5" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioNormal21.xsd" MetadataType="Schema" ID="e2842994-db25-4971-8ce3-c5277a3a81de" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServicioNormal.xsd" MetadataType="Schema" ID="f986a2a9-cd10-48bf-b0a1-77a571ce2e91" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioNormal22.xsd" MetadataType="Schema" ID="726b8386-bb36-4cfe-bcee-38484921e29d" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioNormal1.xsd" MetadataType="Schema" ID="c38848b1-635f-4e7e-be74-5684760af494" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioNormal.wsdl" MetadataType="Wsdl" ID="d3e1f885-1c9f-48db-8cae-898eaf9fe03c" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ServicioNormal1.wsdl" MetadataType="Wsdl" ID="71fdc9fd-af66-442e-8ec4-06e311cefe93" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?wsdl" />
+    <MetadataFile FileName="ServicioNormal.disco" MetadataType="Disco" ID="ba2baf66-8415-4385-908d-07238955754b" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

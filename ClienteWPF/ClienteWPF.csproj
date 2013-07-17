@@ -39,6 +39,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\ProxyWCFNormal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Web References\ProxyWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,6 +106,29 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\ProxyWCFNormal\ClienteWPF.ProxyWCFNormal.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProxyWCFNormal\ClienteWPF.ProxyWCFNormal.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal.wsdl" />
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal1.wsdl" />
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal22.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\ProxyWS\Category.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -132,6 +162,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\ProxyWS\ServicioCurso.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ProxyWCFNormal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyWCFNormal\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyWCFNormal\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyWCFNormal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

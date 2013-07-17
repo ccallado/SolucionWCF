@@ -59,7 +59,7 @@
     <Content Include="App_Data\northwind_log.ldf">
       <DependentUpon>northwind.mdf</DependentUpon>
     </Content>
-    <Content Include="Service1.svc" />
+    <Content Include="ServicioNormal.svc" />
     <Content Include="ServicioCurso.asmx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -76,8 +76,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NWModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="ServicioNormal.svc.cs">
+      <DependentUpon>ServicioNormal.svc</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteWPF", "ClienteWPF\ClienteWPF.csproj", "{2BC71536-364B-4CA7-BABB-D494F1E23827}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3254009C-AE60-4EE4-9CFD-057CB17643A5} = {3254009C-AE60-4EE4-9CFD-057CB17643A5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiciosWCF", "ServiciosWCF\ServiciosWCF.csproj", "{3254009C-AE60-4EE4-9CFD-057CB17643A5}"
 EndProject

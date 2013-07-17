@@ -269,7 +269,7 @@ namespace ServiciosWCF
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("northwindModel", "FK_Products_Categories", "Products")]
-        public EntityCollection<Product> Products
+        public EntityCollection<Product> RelProducts
         {
             get
             {
@@ -572,7 +572,7 @@ namespace ServiciosWCF
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("northwindModel", "FK_Products_Categories", "Categories")]
-        public Category Category
+        public Category RelCategory
         {
             get
             {
@@ -588,7 +588,7 @@ namespace ServiciosWCF
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Category> CategoryReference
+        public EntityReference<Category> RelCategoryReference
         {
             get
             {
