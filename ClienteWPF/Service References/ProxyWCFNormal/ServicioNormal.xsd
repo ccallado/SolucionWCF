@@ -43,4 +43,61 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CategoriaYProductosPorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cat" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaYProductosPorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="CategoriaYProductosPorIdResult" nillable="true" type="q3:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidoPorCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cliente" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Pedido" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidoPorClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="PedidoPorClienteResult" nillable="true" type="q4:Order" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidosPorCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cliente" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidosPorClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="PedidosPorClienteResult" nillable="true" type="q5:ArrayOfOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDConErrores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDConErroresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="CategoriaPorIDConErroresResult" nillable="true" type="q6:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

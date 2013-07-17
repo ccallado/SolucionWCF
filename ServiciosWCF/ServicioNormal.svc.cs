@@ -70,5 +70,52 @@ namespace ServiciosWCF
                 return cat;
             }
         }
+
+        //Que nos pida el Cliente y el número de Pedido nos devuelve un Pedido
+        public Order PedidoPorCliente(string Cliente, int Pedido)
+        {
+            using (northwindEntities ne =
+                   new northwindEntities())
+            {
+                ne.ContextOptions.LazyLoadingEnabled = false;
+                var ped = ne.Orders.Include("RelOrder_Details.RelProduct")
+                               .Where(p => p.CustomerID == Cliente && p.OrderID == Pedido)
+                               .SingleOrDefault();
+                return ped;
+            }
+        }
+
+        //Que nos pida el Cliente y devolverá una lista de Pedidos (Sobrecarga)
+        public List<Order> PedidoPorCliente(string Cliente)
+        {
+            using (northwindEntities ne =
+                   new northwindEntities())
+            {
+                ne.ContextOptions.LazyLoadingEnabled = false;
+                var pedidos = ne.Orders.Include("RelOrder_Details.RelProduct")
+                               .Where(p => p.CustomerID == Cliente);
+                return pedidos.ToList();
+            }
+        }
+
+        //Que nos pida un número y nos devuelva una categoría y si hay error lo indico en el servicio
+        public Category CategoriaPorIDConErrores(int IdCategoria)
+        {
+            using (northwindEntities ne =
+                   new northwindEntities())
+            {
+                ne.ContextOptions.LazyLoadingEnabled = false;
+                var cat = ne.Categories
+                            .Where(c => c.CategoryID == IdCategoria)
+                            .SingleOrDefault();
+                if (cat != null)
+                    return cat;
+                else
+                    //throw new ArgumentOutOfRangeException("IdCategoria",
+                    //    IdCategoria,
+                    //    "Categoría no encontrada");
+                    throw new FaultException<string>("No existe la categoría " + IdCategoria, "Categoría no encontrada.");
+            }
+        }
     }
 }

@@ -27,6 +27,24 @@ namespace ServiciosWCF
         //Que nos pida una categoría y nos devuelva todos los productos de la categoría
         [OperationContract]
         List<Product> ProductosPorCategoria(int IdCategoria);
+
+        //Que nos pida un número y nos devuelva una categoría y todos sus productos
+        [OperationContract]
+        Category CategoriaYProductosPorId(int cat);
+
+        //Que nos pida el Cliente y el número de Pedido nos devuelve un Pedido
+        [OperationContract]
+        Order PedidoPorCliente(string Cliente, int Pedido);
+
+        //Que nos pida el Cliente y devolverá una lista de Pedidos (Sobrecarga)
+        [OperationContract(Name="PedidosPorCliente")]
+        List<Order> PedidoPorCliente(string Cliente);
+
+        //Que nos pida un número y nos devuelva una categoría y si hay error lo indico en el servicio
+        [OperationContract]
+        //Tenemos que poner la etiqueta para indicar que este metodo devuelve en caso de error un string
+        [FaultContract (typeof(string))]
+        Category CategoriaPorIDConErrores(int IdCategoria);
     }
 
 

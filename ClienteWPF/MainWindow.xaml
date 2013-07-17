@@ -12,5 +12,11 @@
         <Button Content="CategoriaPorID (WCF)" Height="23" HorizontalAlignment="Left" Margin="10,126,0,0" Name="button5" VerticalAlignment="Top" Width="167" Click="button5_Click" />
         <TextBox Height="23" HorizontalAlignment="Right" Margin="0,127,200,0" Name="textBox3" VerticalAlignment="Top" Width="120" />
         <Button Content="ProductosPorCategoria (WCF)" Height="23" HorizontalAlignment="Left" Margin="10,155,0,0" Name="button6" VerticalAlignment="Top" Width="167" Click="button6_Click" />
+        <Button Content="Categoria y Productos (WCF)" Height="23" HorizontalAlignment="Left" Margin="10,184,0,0" Name="button7" VerticalAlignment="Top" Width="167" Click="button7_Click" />
+        <Button Content="Pedidos por cliente (WCF)" Height="23" HorizontalAlignment="Left" Margin="10,213,0,0" Name="button8" VerticalAlignment="Top" Width="167" Click="button8_Click" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,213,200,0" Name="textBox4" VerticalAlignment="Top" Width="120" Text="ALFKI" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,213,74,0" Name="textBox5" VerticalAlignment="Top" Width="120" />
+        <Button Content="Categoria con errores (WCF)" Height="23" HorizontalAlignment="Left" Margin="10,242,0,0" Name="button9" VerticalAlignment="Top" Width="167" Click="button9_Click" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,242,200,0" Name="textBox6" VerticalAlignment="Top" Width="120" />
     </Grid>
 </Window>

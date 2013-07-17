@@ -27,6 +27,33 @@
   <wsdl:message name="IServicioNormal_ProductosPorCategoria_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProductosPorCategoriaResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioNormal_CategoriaYProductosPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:CategoriaYProductosPorId" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_CategoriaYProductosPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CategoriaYProductosPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_PedidoPorCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:PedidoPorCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_PedidoPorCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PedidoPorClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_PedidosPorCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:PedidosPorCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_PedidosPorCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PedidosPorClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_CategoriaPorIDConErrores_InputMessage">
+    <wsdl:part name="parameters" element="tns:CategoriaPorIDConErrores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_CategoriaPorIDConErrores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CategoriaPorIDConErroresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_CategoriaPorIDConErrores_StringFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q1:string" />
+  </wsdl:message>
   <wsdl:portType name="IServicioNormal">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/GetData" message="tns:IServicioNormal_GetData_InputMessage" />
@@ -39,6 +66,23 @@
     <wsdl:operation name="ProductosPorCategoria">
       <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoria" message="tns:IServicioNormal_ProductosPorCategoria_InputMessage" />
       <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoriaResponse" message="tns:IServicioNormal_ProductosPorCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaYProductosPorId">
+      <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorId" message="tns:IServicioNormal_CategoriaYProductosPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorIdResponse" message="tns:IServicioNormal_CategoriaYProductosPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PedidoPorCliente">
+      <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/PedidoPorCliente" message="tns:IServicioNormal_PedidoPorCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/PedidoPorClienteResponse" message="tns:IServicioNormal_PedidoPorCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PedidosPorCliente">
+      <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/PedidosPorCliente" message="tns:IServicioNormal_PedidosPorCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/PedidosPorClienteResponse" message="tns:IServicioNormal_PedidosPorCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaPorIDConErrores">
+      <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores" message="tns:IServicioNormal_CategoriaPorIDConErrores_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresResponse" message="tns:IServicioNormal_CategoriaPorIDConErrores_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresStringFault" name="StringFault" message="tns:IServicioNormal_CategoriaPorIDConErrores_StringFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

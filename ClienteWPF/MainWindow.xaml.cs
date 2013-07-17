@@ -30,7 +30,7 @@ namespace ClienteWPF
             ProxyWS.ServicioCurso ws = new ProxyWS.ServicioCurso();
 
             //Llamamos al método
-            MessageBox.Show( ws.HelloWorld());
+            MessageBox.Show(ws.HelloWorld());
 
             //Llamamos al nuevo método HelloWord con sobrecarga de NOMBRE
             MessageBox.Show(ws.HelloWorld(textBox1.Text));
@@ -58,13 +58,13 @@ namespace ClienteWPF
             using (ProxyWS.ServicioCurso ws = new ProxyWS.ServicioCurso())
             {
                 string cad = "";
-                var cats = ws.CategoriasYProductos ();
+                var cats = ws.CategoriasYProductos();
 
-                foreach (ProxyWS.ClaseCategoria  c in cats)
+                foreach (ProxyWS.ClaseCategoria c in cats)
                 {
                     cad += c.Categoria.CategoryID + " - " +
                            c.Categoria.CategoryName + " (Productos: " +
-                           c.Productos.Count() + ")\n"; 
+                           c.Productos.Count() + ")\n";
 
                     foreach (ProxyWS.Product p in c.Productos)
                     {
@@ -82,10 +82,10 @@ namespace ClienteWPF
         //GetData (WCF)
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            using (ProxyWCFNormal.ServicioNormalClient  s =
-                   new ProxyWCFNormal.ServicioNormalClient ())
-            { 
-                MessageBox.Show(s.GetData (int.Parse(textBox2.Text)));
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                   new ProxyWCFNormal.ServicioNormalClient())
+            {
+                MessageBox.Show(s.GetData(int.Parse(textBox2.Text)));
             }
         }
 
@@ -107,7 +107,7 @@ namespace ClienteWPF
             using (ProxyWCFNormal.ServicioNormalClient s =
                      new ProxyWCFNormal.ServicioNormalClient())
             {
-                var prods = s.ProductosPorCategoria (int.Parse(textBox3.Text));
+                var prods = s.ProductosPorCategoria(int.Parse(textBox3.Text));
 
                 if (prods.Count() > 0)
                 {
@@ -118,6 +118,81 @@ namespace ClienteWPF
                                p.ProductName + "\n";
 
                     MessageBox.Show(cad, "Productos " + prods.Count());
+                }
+            }
+        }
+
+        //Categoria y productos
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                     new ProxyWCFNormal.ServicioNormalClient())
+            {
+                ProxyWCFNormal.Category cat = s.CategoriaYProductosPorId(int.Parse(textBox3.Text));
+                if (cat != null)
+                {
+                    string cad = cat.CategoryID + " - " +
+                        cat.CategoryName + "\n";
+
+                    foreach (var p in cat.RelProducts)
+                        cad += "\n\t" + p.ProductID + " - " +
+                               p.ProductName;
+                    MessageBox.Show(cad, "Categoría " + cat.Description);
+                }
+            }
+        }
+
+        //Pedido por Cliente (WCF)
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                     new ProxyWCFNormal.ServicioNormalClient())
+            {
+                //Me creo la variable pedidos tipo Array de .....
+                ProxyWCFNormal.Order[] pedidos;
+
+                if (textBox5.Text != "")
+                {
+                    ProxyWCFNormal.Order ped = s.PedidoPorCliente(textBox4.Text, int.Parse(textBox5.Text));
+                    pedidos = new ProxyWCFNormal.Order[] {ped};
+                }
+                else
+                {
+                    pedidos = s.PedidosPorCliente(textBox4.Text);
+                }
+
+                string cad = "Cantidad: " + pedidos.Count() + "\n";
+
+                foreach (var p in pedidos )
+                {
+                    cad += p.OrderID + " - " +
+                           p.OrderDate.Value.ToShortDateString() + "\n";
+
+                    foreach (var d in p.RelOrder_Details)
+                        cad += "\n\t" + d.Quantity + "x" +
+                               d.RelProduct.ProductName + " (" +
+                               d.UnitPrice.ToString("c") + ")";
+
+                    cad += "\n\n";
+                }
+                MessageBox.Show(cad);
+            }
+        }
+
+        private void button9_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                     new ProxyWCFNormal.ServicioNormalClient())
+            {
+                try
+                {
+                    ProxyWCFNormal.Category cat = s.CategoriaPorIDConErrores (int.Parse(textBox6.Text));
+                    MessageBox.Show(cat.Description);
+                }
+                //Excepcion de SOAP
+                catch (System.ServiceModel.FaultException<string> ex)
+                { 
+                    MessageBox.Show(ex.Detail + "\n" + ex.Reason , "Tipo de error: " + ex.GetType());
                 }
             }
         }

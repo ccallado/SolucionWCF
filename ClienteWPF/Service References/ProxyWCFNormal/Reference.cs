@@ -19,6 +19,8 @@ namespace ClienteWPF.ProxyWCFNormal {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Product))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order_Detail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Category))]
     public partial class StructuralObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -50,6 +52,8 @@ namespace ClienteWPF.ProxyWCFNormal {
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Product))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order_Detail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Category))]
     public partial class EntityObject : ClienteWPF.ProxyWCFNormal.StructuralObject {
         
@@ -96,6 +100,9 @@ namespace ClienteWPF.ProxyWCFNormal {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ClienteWPF.ProxyWCFNormal.EntityReferenceOfCategory7Zl6WYH6 RelCategoryReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWPF.ProxyWCFNormal.Order_Detail[] RelOrder_DetailsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<short> ReorderLevelField;
@@ -204,6 +211,19 @@ namespace ClienteWPF.ProxyWCFNormal {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWPF.ProxyWCFNormal.Order_Detail[] RelOrder_Details {
+            get {
+                return this.RelOrder_DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelOrder_DetailsField, value) != true)) {
+                    this.RelOrder_DetailsField = value;
+                    this.RaisePropertyChanged("RelOrder_Details");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<short> ReorderLevel {
             get {
                 return this.ReorderLevelField;
@@ -264,6 +284,404 @@ namespace ClienteWPF.ProxyWCFNormal {
                 if ((this.UnitsOnOrderField.Equals(value) != true)) {
                     this.UnitsOnOrderField = value;
                     this.RaisePropertyChanged("UnitsOnOrder");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order_Detail", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Order_Detail : ClienteWPF.ProxyWCFNormal.EntityObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float DiscountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrderIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short QuantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWPF.ProxyWCFNormal.Order RelOrderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWPF.ProxyWCFNormal.EntityReferenceOfOrder7Zl6WYH6 RelOrderReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWPF.ProxyWCFNormal.Product RelProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWPF.ProxyWCFNormal.EntityReferenceOfProduct7Zl6WYH6 RelProductReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal UnitPriceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Discount {
+            get {
+                return this.DiscountField;
+            }
+            set {
+                if ((this.DiscountField.Equals(value) != true)) {
+                    this.DiscountField = value;
+                    this.RaisePropertyChanged("Discount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OrderID {
+            get {
+                return this.OrderIDField;
+            }
+            set {
+                if ((this.OrderIDField.Equals(value) != true)) {
+                    this.OrderIDField = value;
+                    this.RaisePropertyChanged("OrderID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductID {
+            get {
+                return this.ProductIDField;
+            }
+            set {
+                if ((this.ProductIDField.Equals(value) != true)) {
+                    this.ProductIDField = value;
+                    this.RaisePropertyChanged("ProductID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWPF.ProxyWCFNormal.Order RelOrder {
+            get {
+                return this.RelOrderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelOrderField, value) != true)) {
+                    this.RelOrderField = value;
+                    this.RaisePropertyChanged("RelOrder");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWPF.ProxyWCFNormal.EntityReferenceOfOrder7Zl6WYH6 RelOrderReference {
+            get {
+                return this.RelOrderReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelOrderReferenceField, value) != true)) {
+                    this.RelOrderReferenceField = value;
+                    this.RaisePropertyChanged("RelOrderReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWPF.ProxyWCFNormal.Product RelProduct {
+            get {
+                return this.RelProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelProductField, value) != true)) {
+                    this.RelProductField = value;
+                    this.RaisePropertyChanged("RelProduct");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWPF.ProxyWCFNormal.EntityReferenceOfProduct7Zl6WYH6 RelProductReference {
+            get {
+                return this.RelProductReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelProductReferenceField, value) != true)) {
+                    this.RelProductReferenceField = value;
+                    this.RaisePropertyChanged("RelProductReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal UnitPrice {
+            get {
+                return this.UnitPriceField;
+            }
+            set {
+                if ((this.UnitPriceField.Equals(value) != true)) {
+                    this.UnitPriceField = value;
+                    this.RaisePropertyChanged("UnitPrice");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Order : ClienteWPF.ProxyWCFNormal.EntityObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CustomerIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> EmployeeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> FreightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> OrderDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrderIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWPF.ProxyWCFNormal.Order_Detail[] RelOrder_DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> RequiredDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShipAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShipCityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShipCountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShipNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShipPostalCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShipRegionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ShipViaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ShippedDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CustomerID {
+            get {
+                return this.CustomerIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerIDField, value) != true)) {
+                    this.CustomerIDField = value;
+                    this.RaisePropertyChanged("CustomerID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EmployeeID {
+            get {
+                return this.EmployeeIDField;
+            }
+            set {
+                if ((this.EmployeeIDField.Equals(value) != true)) {
+                    this.EmployeeIDField = value;
+                    this.RaisePropertyChanged("EmployeeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Freight {
+            get {
+                return this.FreightField;
+            }
+            set {
+                if ((this.FreightField.Equals(value) != true)) {
+                    this.FreightField = value;
+                    this.RaisePropertyChanged("Freight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> OrderDate {
+            get {
+                return this.OrderDateField;
+            }
+            set {
+                if ((this.OrderDateField.Equals(value) != true)) {
+                    this.OrderDateField = value;
+                    this.RaisePropertyChanged("OrderDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OrderID {
+            get {
+                return this.OrderIDField;
+            }
+            set {
+                if ((this.OrderIDField.Equals(value) != true)) {
+                    this.OrderIDField = value;
+                    this.RaisePropertyChanged("OrderID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWPF.ProxyWCFNormal.Order_Detail[] RelOrder_Details {
+            get {
+                return this.RelOrder_DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelOrder_DetailsField, value) != true)) {
+                    this.RelOrder_DetailsField = value;
+                    this.RaisePropertyChanged("RelOrder_Details");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> RequiredDate {
+            get {
+                return this.RequiredDateField;
+            }
+            set {
+                if ((this.RequiredDateField.Equals(value) != true)) {
+                    this.RequiredDateField = value;
+                    this.RaisePropertyChanged("RequiredDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShipAddress {
+            get {
+                return this.ShipAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShipAddressField, value) != true)) {
+                    this.ShipAddressField = value;
+                    this.RaisePropertyChanged("ShipAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShipCity {
+            get {
+                return this.ShipCityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShipCityField, value) != true)) {
+                    this.ShipCityField = value;
+                    this.RaisePropertyChanged("ShipCity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShipCountry {
+            get {
+                return this.ShipCountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShipCountryField, value) != true)) {
+                    this.ShipCountryField = value;
+                    this.RaisePropertyChanged("ShipCountry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShipName {
+            get {
+                return this.ShipNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShipNameField, value) != true)) {
+                    this.ShipNameField = value;
+                    this.RaisePropertyChanged("ShipName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShipPostalCode {
+            get {
+                return this.ShipPostalCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShipPostalCodeField, value) != true)) {
+                    this.ShipPostalCodeField = value;
+                    this.RaisePropertyChanged("ShipPostalCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShipRegion {
+            get {
+                return this.ShipRegionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShipRegionField, value) != true)) {
+                    this.ShipRegionField = value;
+                    this.RaisePropertyChanged("ShipRegion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ShipVia {
+            get {
+                return this.ShipViaField;
+            }
+            set {
+                if ((this.ShipViaField.Equals(value) != true)) {
+                    this.ShipViaField = value;
+                    this.RaisePropertyChanged("ShipVia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ShippedDate {
+            get {
+                return this.ShippedDateField;
+            }
+            set {
+                if ((this.ShippedDateField.Equals(value) != true)) {
+                    this.ShippedDateField = value;
+                    this.RaisePropertyChanged("ShippedDate");
                 }
             }
         }
@@ -442,11 +860,17 @@ namespace ClienteWPF.ProxyWCFNormal {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfCategory7Zl6WYH6))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReference))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.RelatedEnd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfOrder7Zl6WYH6))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfProduct7Zl6WYH6))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityKeyMember[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Category))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Product[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Product))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order_Detail[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order_Detail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order[]))]
     public partial class EntityKeyMember : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -515,6 +939,8 @@ namespace ClienteWPF.ProxyWCFNormal {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfOrder7Zl6WYH6))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfProduct7Zl6WYH6))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfCategory7Zl6WYH6))]
     public partial class EntityReference : ClienteWPF.ProxyWCFNormal.RelatedEnd {
         
@@ -540,6 +966,8 @@ namespace ClienteWPF.ProxyWCFNormal {
     [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfOrder7Zl6WYH6))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfProduct7Zl6WYH6))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfCategory7Zl6WYH6))]
     public partial class RelatedEnd : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -566,6 +994,20 @@ namespace ClienteWPF.ProxyWCFNormal {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfOrder7Zl6WYH6", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.SerializableAttribute()]
+    public partial class EntityReferenceOfOrder7Zl6WYH6 : ClienteWPF.ProxyWCFNormal.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfProduct7Zl6WYH6", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.SerializableAttribute()]
+    public partial class EntityReferenceOfProduct7Zl6WYH6 : ClienteWPF.ProxyWCFNormal.EntityReference {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://com.miempresa.wwww", ConfigurationName="ProxyWCFNormal.IServicioNormal")]
     public interface IServicioNormal {
@@ -578,6 +1020,19 @@ namespace ClienteWPF.ProxyWCFNormal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoria", ReplyAction="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoriaResponse")]
         ClienteWPF.ProxyWCFNormal.Product[] ProductosPorCategoria(int IdCategoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorId", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorIdResponse")]
+        ClienteWPF.ProxyWCFNormal.Category CategoriaYProductosPorId(int cat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/PedidoPorCliente", ReplyAction="http://com.miempresa.wwww/IServicioNormal/PedidoPorClienteResponse")]
+        ClienteWPF.ProxyWCFNormal.Order PedidoPorCliente(string Cliente, int Pedido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/PedidosPorCliente", ReplyAction="http://com.miempresa.wwww/IServicioNormal/PedidosPorClienteResponse")]
+        ClienteWPF.ProxyWCFNormal.Order[] PedidosPorCliente(string Cliente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(string), Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresStringFault", Name="string", Namespace="http://schemas.microsoft.com/2003/10/Serialization/")]
+        ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDConErrores(int IdCategoria);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -617,6 +1072,22 @@ namespace ClienteWPF.ProxyWCFNormal {
         
         public ClienteWPF.ProxyWCFNormal.Product[] ProductosPorCategoria(int IdCategoria) {
             return base.Channel.ProductosPorCategoria(IdCategoria);
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category CategoriaYProductosPorId(int cat) {
+            return base.Channel.CategoriaYProductosPorId(cat);
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Order PedidoPorCliente(string Cliente, int Pedido) {
+            return base.Channel.PedidoPorCliente(Cliente, Pedido);
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Order[] PedidosPorCliente(string Cliente) {
+            return base.Channel.PedidosPorCliente(Cliente);
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDConErrores(int IdCategoria) {
+            return base.Channel.CategoriaPorIDConErrores(IdCategoria);
         }
     }
 }

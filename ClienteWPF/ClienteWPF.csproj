@@ -109,6 +109,9 @@
     <None Include="Service References\ProxyWCFNormal\ClienteWPF.ProxyWCFNormal.Category.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ProxyWCFNormal\ClienteWPF.ProxyWCFNormal.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ProxyWCFNormal\ClienteWPF.ProxyWCFNormal.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
