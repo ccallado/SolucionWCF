@@ -871,6 +871,8 @@ namespace ClienteWPF.ProxyWCFNormal {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order_Detail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.ClaseError))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.enumTipoError))]
     public partial class EntityKeyMember : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1008,6 +1010,97 @@ namespace ClienteWPF.ProxyWCFNormal {
     public partial class EntityReferenceOfProduct7Zl6WYH6 : ClienteWPF.ProxyWCFNormal.EntityReference {
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClaseError", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF")]
+    [System.SerializableAttribute()]
+    public partial class ClaseError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DatosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClienteWPF.ProxyWCFNormal.enumTipoError ErrorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MensajeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Datos {
+            get {
+                return this.DatosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DatosField, value) != true)) {
+                    this.DatosField = value;
+                    this.RaisePropertyChanged("Datos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClienteWPF.ProxyWCFNormal.enumTipoError Error {
+            get {
+                return this.ErrorField;
+            }
+            set {
+                if ((this.ErrorField.Equals(value) != true)) {
+                    this.ErrorField = value;
+                    this.RaisePropertyChanged("Error");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mensaje {
+            get {
+                return this.MensajeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MensajeField, value) != true)) {
+                    this.MensajeField = value;
+                    this.RaisePropertyChanged("Mensaje");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="enumTipoError", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF")]
+    public enum enumTipoError : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CategoriaNoEncontrada = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CategoriaErronea = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Otros = 2,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://com.miempresa.wwww", ConfigurationName="ProxyWCFNormal.IServicioNormal")]
     public interface IServicioNormal {
@@ -1032,7 +1125,12 @@ namespace ClienteWPF.ProxyWCFNormal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(string), Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresStringFault", Name="string", Namespace="http://schemas.microsoft.com/2003/10/Serialization/")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ClienteWPF.ProxyWCFNormal.ClaseError), Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresClaseErrorFault" +
+            "", Name="ClaseError", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF")]
         ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDConErrores(int IdCategoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausa", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausaResponse")]
+        ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDconPausa(int IdCategoria, int segundos);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1088,6 +1186,10 @@ namespace ClienteWPF.ProxyWCFNormal {
         
         public ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDConErrores(int IdCategoria) {
             return base.Channel.CategoriaPorIDConErrores(IdCategoria);
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDconPausa(int IdCategoria, int segundos) {
+            return base.Channel.CategoriaPorIDconPausa(IdCategoria, segundos);
         }
     }
 }

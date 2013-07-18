@@ -51,7 +51,7 @@ namespace ServiciosWCF
                    new northwindEntities())
             {
                 ne.ContextOptions.LazyLoadingEnabled = false;
-                var prod = ne.Products 
+                var prod = ne.Products
                             .Where(p => p.CategoryID == IdCategoria);
                 return prod.ToList();
             }
@@ -101,8 +101,19 @@ namespace ServiciosWCF
         //Que nos pida un número y nos devuelva una categoría y si hay error lo indico en el servicio
         public Category CategoriaPorIDConErrores(int IdCategoria)
         {
-            using (northwindEntities ne =
-                   new northwindEntities())
+            if (IdCategoria <= 0)
+                throw new FaultException<ClaseError>(new ClaseError()
+                {
+                    Error = enumTipoError.CategoriaErronea,
+                    Mensaje = "La categoría no puede ser negativa.",
+                    //No se puede mandar Datos como un objeto de excepción
+                    //Lo hemos cambiado por una cadena y mando el mensage del error
+                    Datos = (new ArgumentOutOfRangeException("IdCategoria",
+                                                            IdCategoria,
+                                                            "Id negativo")).Message 
+                });
+
+            using (northwindEntities ne = new northwindEntities())
             {
                 ne.ContextOptions.LazyLoadingEnabled = false;
                 var cat = ne.Categories
@@ -114,7 +125,25 @@ namespace ServiciosWCF
                     //throw new ArgumentOutOfRangeException("IdCategoria",
                     //    IdCategoria,
                     //    "Categoría no encontrada");
-                    throw new FaultException<string>("No existe la categoría " + IdCategoria, "Categoría no encontrada.");
+                    throw new FaultException<string>("No existe la categoría " + IdCategoria,
+                                                     "Categoría no encontrada.");
+            }
+        }
+
+
+        public Category CategoriaPorIDconPausa(int IdCategoria, int segundos)
+        {
+            //Añado una pausa
+            System.Threading.Thread.Sleep(segundos * 1000);
+
+            using (northwindEntities ne =
+                   new northwindEntities())
+            {
+                ne.ContextOptions.LazyLoadingEnabled = false;
+                var cat = ne.Categories
+                            .Where(c => c.CategoryID == IdCategoria)
+                            .SingleOrDefault();
+                return cat;
             }
         }
     }

@@ -154,7 +154,7 @@ namespace ClienteWPF
                 if (textBox5.Text != "")
                 {
                     ProxyWCFNormal.Order ped = s.PedidoPorCliente(textBox4.Text, int.Parse(textBox5.Text));
-                    pedidos = new ProxyWCFNormal.Order[] {ped};
+                    pedidos = new ProxyWCFNormal.Order[] { ped };
                 }
                 else
                 {
@@ -163,7 +163,7 @@ namespace ClienteWPF
 
                 string cad = "Cantidad: " + pedidos.Count() + "\n";
 
-                foreach (var p in pedidos )
+                foreach (var p in pedidos)
                 {
                     cad += p.OrderID + " - " +
                            p.OrderDate.Value.ToShortDateString() + "\n";
@@ -186,13 +186,56 @@ namespace ClienteWPF
             {
                 try
                 {
-                    ProxyWCFNormal.Category cat = s.CategoriaPorIDConErrores (int.Parse(textBox6.Text));
+                    ProxyWCFNormal.Category cat = s.CategoriaPorIDConErrores(int.Parse(textBox6.Text));
                     MessageBox.Show(cat.Description);
                 }
                 //Excepcion de SOAP
                 catch (System.ServiceModel.FaultException<string> ex)
-                { 
-                    MessageBox.Show(ex.Detail + "\n" + ex.Reason , "Tipo de error: " + ex.GetType());
+                {
+                    MessageBox.Show(ex.Detail + "\n" + ex.Reason,
+                                    "Tipo de error: " + ex.GetType());
+                }
+                //Excepcion de SOAP con la clase CLASEERROR
+                catch (System.ServiceModel.FaultException<ProxyWCFNormal.ClaseError> ex)
+                {
+                    string cad = "";
+                    //El Detail es un ClaseError
+                    ProxyWCFNormal.ClaseError detalle = ex.Detail as ProxyWCFNormal.ClaseError;
+                    cad += detalle.Mensaje + "\n" +
+                        //La enumeración es pública en el proxy también
+                           (detalle.Error == ProxyWCFNormal.enumTipoError.CategoriaErronea ?
+                           "Categoría Inexistente..." :
+                           detalle.Error.ToString()) + "\n";
+                    if (detalle.Datos != null)
+                    {
+                        cad += "Excepción: " + detalle.Datos.GetType();
+                        cad += "\n" + detalle.Datos;
+                    }
+                    MessageBox.Show(cad);
+                }
+            }
+        }
+
+        DateTime Entrada;
+
+        private void button10_Click(object sender, RoutedEventArgs e)
+        {
+            listBox1.Items.Clear();
+            Entrada = DateTime.Now;
+
+            //Crear objeto de contexto
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                    new ProxyWCFNormal.ServicioNormalClient())
+            {
+                if (!checkBox1.IsChecked.Value)
+                {
+                    for (int i = 1; i <=8; i++)
+                    {
+                        ProxyWCFNormal.Category c = s.CategoriaPorIDconPausa (i, 2);
+                        listBox1.Items.Add(c.CategoryID.ToString()+" - " + 
+                                           c.CategoryName + " - segundos: " +
+                                           DateTime.Now.Subtract(Entrada).TotalSeconds);
+                    }
                 }
             }
         }

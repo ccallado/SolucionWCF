@@ -69,6 +69,18 @@
       <wsdl:fault name="StringFault">
         <soap:fault use="literal" name="StringFault" namespace="" />
       </wsdl:fault>
+      <wsdl:fault name="ClaseErrorFault">
+        <soap:fault use="literal" name="ClaseErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaPorIDconPausa">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicioNormal">

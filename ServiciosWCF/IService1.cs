@@ -43,8 +43,15 @@ namespace ServiciosWCF
         //Que nos pida un número y nos devuelva una categoría y si hay error lo indico en el servicio
         [OperationContract]
         //Tenemos que poner la etiqueta para indicar que este metodo devuelve en caso de error un string
-        [FaultContract (typeof(string))]
+        [FaultContract(typeof(string))]
+        //Ahora exta excepción puede devolver un STRING o una instancia de CLASEERROR clase mia.
+        [FaultContract(typeof(ClaseError))]
         Category CategoriaPorIDConErrores(int IdCategoria);
+
+        //Que nos pida un número y nos devuelva una categoría
+        [OperationContract]
+        Category CategoriaPorIDconPausa(int IdCategoria, int segundos);
+
     }
 
 

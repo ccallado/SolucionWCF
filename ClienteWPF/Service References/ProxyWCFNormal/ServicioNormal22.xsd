@@ -97,4 +97,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
+  <xs:complexType name="ClaseError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Datos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Error" type="tns:enumTipoError" />
+      <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClaseError" nillable="true" type="tns:ClaseError" />
+  <xs:simpleType name="enumTipoError">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CategoriaNoEncontrada" />
+      <xs:enumeration value="CategoriaErronea" />
+      <xs:enumeration value="Otros" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumTipoError" nillable="true" type="tns:enumTipoError" />
 </xs:schema>

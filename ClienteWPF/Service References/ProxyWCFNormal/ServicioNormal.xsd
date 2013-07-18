@@ -100,4 +100,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CategoriaPorIDconPausa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
+        <xs:element minOccurs="0" name="segundos" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDconPausaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="CategoriaPorIDconPausaResult" nillable="true" type="q7:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
