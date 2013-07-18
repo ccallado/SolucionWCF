@@ -9,7 +9,7 @@ using System.Text;
 namespace ServiciosWCF
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
-    public class ServicioNormal : IService1
+    public class ServicioNormal : IService1, IService2 
     {
         public string GetData(int value)
         {
@@ -145,6 +145,21 @@ namespace ServiciosWCF
                             .SingleOrDefault();
                 return cat;
             }
+        }
+
+        //Metodo que incrementa uno a uno una variable definida al instanciar el servicio
+        int Contador = 0;
+
+        public int IncrementaContador()
+        {
+            Contador++;
+            return Contador;
+        }
+
+        //Me ha implementado solo este porque los otros ya los había implementado con el IService1
+        public DateTime Hora()
+        {
+            return DateTime.Now ;
         }
     }
 }

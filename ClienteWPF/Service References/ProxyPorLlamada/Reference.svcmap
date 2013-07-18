@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="947d391b-b038-45fa-a948-e72117b27fa6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50564/ServicioPorLlamada.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioPorLlamada.disco" MetadataType="Disco" ID="34d6780f-604b-445a-8fd7-7b771132f112" SourceId="1" SourceUrl="http://localhost:50564/ServicioPorLlamada.svc?disco" />
+    <MetadataFile FileName="ServicioPorLlamada.xsd" MetadataType="Schema" ID="eca19c0f-b020-4550-880f-09945ad01c32" SourceId="1" SourceUrl="http://localhost:50564/ServicioPorLlamada.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioPorLlamada.wsdl" MetadataType="Wsdl" ID="91e33e2c-a849-4259-b9ac-b2417df695b7" SourceId="1" SourceUrl="http://localhost:50564/ServicioPorLlamada.svc?wsdl" />
+    <MetadataFile FileName="ServicioPorLlamada1.xsd" MetadataType="Schema" ID="36eeb7e6-44f2-4c02-ae62-d9e373d30f69" SourceId="1" SourceUrl="http://localhost:50564/ServicioPorLlamada.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

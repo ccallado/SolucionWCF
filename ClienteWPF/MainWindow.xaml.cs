@@ -229,15 +229,57 @@ namespace ClienteWPF
             {
                 if (!checkBox1.IsChecked.Value)
                 {
-                    for (int i = 1; i <=8; i++)
+                    for (int i = 1; i <= 8; i++)
                     {
-                        ProxyWCFNormal.Category c = s.CategoriaPorIDconPausa (i, 2);
-                        listBox1.Items.Add(c.CategoryID.ToString()+" - " + 
+                        ProxyWCFNormal.Category c = s.CategoriaPorIDconPausa(i, 2);
+                        listBox1.Items.Add(i.ToString() + " - " +
                                            c.CategoryName + " - segundos: " +
                                            DateTime.Now.Subtract(Entrada).TotalSeconds);
                     }
                 }
+                else
+                {
+                    //Manejador de evento
+                    s.CategoriaPorIDconPausaCompleted += new EventHandler<ProxyWCFNormal.CategoriaPorIDconPausaCompletedEventArgs>(s_CategoriaPorIDconPausaCompleted);
+                    for (int i = 1; i <= 8; i++)
+                    {
+                        //El método es void
+                        //El parametro de número de IdCategoria lo puedo pasar en UserState
+                        s.CategoriaPorIDconPausaAsync(i, 5, i );
+                    }
+                }
             }
         }
+
+        void s_CategoriaPorIDconPausaCompleted(object sender, ProxyWCFNormal.CategoriaPorIDconPausaCompletedEventArgs e)
+        {
+            //Esto se ejecuta en el hilo principal y por lo tanto tengo acceso a los controles
+            ProxyWCFNormal.Category c = e.Result;
+
+            //El parametro de número de IdCategoria lo puedo pasar en UserState
+            listBox1.Items.Add(e.UserState.ToString() + " - " +
+                               c.CategoryName + " - segundos: " +
+                               DateTime.Now.Subtract(Entrada).TotalSeconds);
+            //Application.
+        }
+
+        //Incrementar contador en servicio WCF
+        private void button11_Click(object sender, RoutedEventArgs e)
+        {
+            //Crear objeto de contexto
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                    new ProxyWCFNormal.ServicioNormalClient())
+            {
+                string cad = "";
+                for (int i = 1; i <= 5; i++)
+                {
+                    cad += "Llamada " + i + " - Contador: " + 
+                           s.IncrementaContador() + "\n";
+                }
+
+                MessageBox.Show(cad);
+            }
+        }
+
     }
 }

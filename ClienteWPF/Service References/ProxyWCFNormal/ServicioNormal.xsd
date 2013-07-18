@@ -115,4 +115,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IncrementaContador">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IncrementaContadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IncrementaContadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

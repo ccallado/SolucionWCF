@@ -52,6 +52,9 @@ namespace ServiciosWCF
         [OperationContract]
         Category CategoriaPorIDconPausa(int IdCategoria, int segundos);
 
+        //Metodo que incrementa uno a uno una variable definida al instanciar el servicio
+        [OperationContract]
+        int IncrementaContador();
     }
 
 

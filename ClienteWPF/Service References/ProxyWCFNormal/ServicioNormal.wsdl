@@ -63,6 +63,12 @@
   <wsdl:message name="IServicioNormal_CategoriaPorIDconPausa_OutputMessage">
     <wsdl:part name="parameters" element="tns:CategoriaPorIDconPausaResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioNormal_IncrementaContador_InputMessage">
+    <wsdl:part name="parameters" element="tns:IncrementaContador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_IncrementaContador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IncrementaContadorResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioNormal">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/GetData" message="tns:IServicioNormal_GetData_InputMessage" />
@@ -97,6 +103,10 @@
     <wsdl:operation name="CategoriaPorIDconPausa">
       <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausa" message="tns:IServicioNormal_CategoriaPorIDconPausa_InputMessage" />
       <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausaResponse" message="tns:IServicioNormal_CategoriaPorIDconPausa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IncrementaContador">
+      <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/IncrementaContador" message="tns:IServicioNormal_IncrementaContador_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/IncrementaContadorResponse" message="tns:IServicioNormal_IncrementaContador_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

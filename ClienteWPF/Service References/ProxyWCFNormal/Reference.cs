@@ -1102,26 +1102,342 @@ namespace ClienteWPF.ProxyWCFNormal {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://com.miempresa2.wwww", ConfigurationName="ProxyWCFNormal.IServicioNormalAux")]
+    public interface IServicioNormalAux {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa2.wwww/IServicioNormalAux/CategoriaPorID", ReplyAction="http://com.miempresa2.wwww/IServicioNormalAux/CategoriaPorIDResponse")]
+        ClienteWPF.ProxyWCFNormal.Category CategoriaPorID(int cat);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa2.wwww/IServicioNormalAux/CategoriaPorID", ReplyAction="http://com.miempresa2.wwww/IServicioNormalAux/CategoriaPorIDResponse")]
+        System.IAsyncResult BeginCategoriaPorID(int cat, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa2.wwww/IServicioNormalAux/ProductosPorCategoria", ReplyAction="http://com.miempresa2.wwww/IServicioNormalAux/ProductosPorCategoriaResponse")]
+        ClienteWPF.ProxyWCFNormal.Product[] ProductosPorCategoria(int IdCategoria);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa2.wwww/IServicioNormalAux/ProductosPorCategoria", ReplyAction="http://com.miempresa2.wwww/IServicioNormalAux/ProductosPorCategoriaResponse")]
+        System.IAsyncResult BeginProductosPorCategoria(int IdCategoria, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Product[] EndProductosPorCategoria(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa2.wwww/IServicioNormalAux/Hora", ReplyAction="http://com.miempresa2.wwww/IServicioNormalAux/HoraResponse")]
+        System.DateTime Hora();
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa2.wwww/IServicioNormalAux/Hora", ReplyAction="http://com.miempresa2.wwww/IServicioNormalAux/HoraResponse")]
+        System.IAsyncResult BeginHora(System.AsyncCallback callback, object asyncState);
+        
+        System.DateTime EndHora(System.IAsyncResult result);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioNormalAuxChannel : ClienteWPF.ProxyWCFNormal.IServicioNormalAux, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CategoriaPorIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CategoriaPorIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Category)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ProductosPorCategoriaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ProductosPorCategoriaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Product[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Product[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class HoraCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public HoraCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.DateTime Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.DateTime)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioNormalAuxClient : System.ServiceModel.ClientBase<ClienteWPF.ProxyWCFNormal.IServicioNormalAux>, ClienteWPF.ProxyWCFNormal.IServicioNormalAux {
+        
+        private BeginOperationDelegate onBeginCategoriaPorIDDelegate;
+        
+        private EndOperationDelegate onEndCategoriaPorIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onCategoriaPorIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginProductosPorCategoriaDelegate;
+        
+        private EndOperationDelegate onEndProductosPorCategoriaDelegate;
+        
+        private System.Threading.SendOrPostCallback onProductosPorCategoriaCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginHoraDelegate;
+        
+        private EndOperationDelegate onEndHoraDelegate;
+        
+        private System.Threading.SendOrPostCallback onHoraCompletedDelegate;
+        
+        public ServicioNormalAuxClient() {
+        }
+        
+        public ServicioNormalAuxClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioNormalAuxClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioNormalAuxClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioNormalAuxClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public event System.EventHandler<CategoriaPorIDCompletedEventArgs> CategoriaPorIDCompleted;
+        
+        public event System.EventHandler<ProductosPorCategoriaCompletedEventArgs> ProductosPorCategoriaCompleted;
+        
+        public event System.EventHandler<HoraCompletedEventArgs> HoraCompleted;
+        
+        public ClienteWPF.ProxyWCFNormal.Category CategoriaPorID(int cat) {
+            return base.Channel.CategoriaPorID(cat);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCategoriaPorID(int cat, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCategoriaPorID(cat, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorID(System.IAsyncResult result) {
+            return base.Channel.EndCategoriaPorID(result);
+        }
+        
+        private System.IAsyncResult OnBeginCategoriaPorID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int cat = ((int)(inValues[0]));
+            return this.BeginCategoriaPorID(cat, callback, asyncState);
+        }
+        
+        private object[] OnEndCategoriaPorID(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Category retVal = this.EndCategoriaPorID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCategoriaPorIDCompleted(object state) {
+            if ((this.CategoriaPorIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CategoriaPorIDCompleted(this, new CategoriaPorIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CategoriaPorIDAsync(int cat) {
+            this.CategoriaPorIDAsync(cat, null);
+        }
+        
+        public void CategoriaPorIDAsync(int cat, object userState) {
+            if ((this.onBeginCategoriaPorIDDelegate == null)) {
+                this.onBeginCategoriaPorIDDelegate = new BeginOperationDelegate(this.OnBeginCategoriaPorID);
+            }
+            if ((this.onEndCategoriaPorIDDelegate == null)) {
+                this.onEndCategoriaPorIDDelegate = new EndOperationDelegate(this.OnEndCategoriaPorID);
+            }
+            if ((this.onCategoriaPorIDCompletedDelegate == null)) {
+                this.onCategoriaPorIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCategoriaPorIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginCategoriaPorIDDelegate, new object[] {
+                        cat}, this.onEndCategoriaPorIDDelegate, this.onCategoriaPorIDCompletedDelegate, userState);
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Product[] ProductosPorCategoria(int IdCategoria) {
+            return base.Channel.ProductosPorCategoria(IdCategoria);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginProductosPorCategoria(int IdCategoria, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginProductosPorCategoria(IdCategoria, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Product[] EndProductosPorCategoria(System.IAsyncResult result) {
+            return base.Channel.EndProductosPorCategoria(result);
+        }
+        
+        private System.IAsyncResult OnBeginProductosPorCategoria(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int IdCategoria = ((int)(inValues[0]));
+            return this.BeginProductosPorCategoria(IdCategoria, callback, asyncState);
+        }
+        
+        private object[] OnEndProductosPorCategoria(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Product[] retVal = this.EndProductosPorCategoria(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnProductosPorCategoriaCompleted(object state) {
+            if ((this.ProductosPorCategoriaCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ProductosPorCategoriaCompleted(this, new ProductosPorCategoriaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ProductosPorCategoriaAsync(int IdCategoria) {
+            this.ProductosPorCategoriaAsync(IdCategoria, null);
+        }
+        
+        public void ProductosPorCategoriaAsync(int IdCategoria, object userState) {
+            if ((this.onBeginProductosPorCategoriaDelegate == null)) {
+                this.onBeginProductosPorCategoriaDelegate = new BeginOperationDelegate(this.OnBeginProductosPorCategoria);
+            }
+            if ((this.onEndProductosPorCategoriaDelegate == null)) {
+                this.onEndProductosPorCategoriaDelegate = new EndOperationDelegate(this.OnEndProductosPorCategoria);
+            }
+            if ((this.onProductosPorCategoriaCompletedDelegate == null)) {
+                this.onProductosPorCategoriaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnProductosPorCategoriaCompleted);
+            }
+            base.InvokeAsync(this.onBeginProductosPorCategoriaDelegate, new object[] {
+                        IdCategoria}, this.onEndProductosPorCategoriaDelegate, this.onProductosPorCategoriaCompletedDelegate, userState);
+        }
+        
+        public System.DateTime Hora() {
+            return base.Channel.Hora();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginHora(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginHora(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.DateTime EndHora(System.IAsyncResult result) {
+            return base.Channel.EndHora(result);
+        }
+        
+        private System.IAsyncResult OnBeginHora(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return this.BeginHora(callback, asyncState);
+        }
+        
+        private object[] OnEndHora(System.IAsyncResult result) {
+            System.DateTime retVal = this.EndHora(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnHoraCompleted(object state) {
+            if ((this.HoraCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.HoraCompleted(this, new HoraCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void HoraAsync() {
+            this.HoraAsync(null);
+        }
+        
+        public void HoraAsync(object userState) {
+            if ((this.onBeginHoraDelegate == null)) {
+                this.onBeginHoraDelegate = new BeginOperationDelegate(this.OnBeginHora);
+            }
+            if ((this.onEndHoraDelegate == null)) {
+                this.onEndHoraDelegate = new EndOperationDelegate(this.OnEndHora);
+            }
+            if ((this.onHoraCompletedDelegate == null)) {
+                this.onHoraCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnHoraCompleted);
+            }
+            base.InvokeAsync(this.onBeginHoraDelegate, null, this.onEndHoraDelegate, this.onHoraCompletedDelegate, userState);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://com.miempresa.wwww", ConfigurationName="ProxyWCFNormal.IServicioNormal")]
     public interface IServicioNormal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/GetData", ReplyAction="http://com.miempresa.wwww/IServicioNormal/GetDataResponse")]
         string GetData(int value);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/GetData", ReplyAction="http://com.miempresa.wwww/IServicioNormal/GetDataResponse")]
+        System.IAsyncResult BeginGetData(int value, System.AsyncCallback callback, object asyncState);
+        
+        string EndGetData(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorID", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDResponse")]
         ClienteWPF.ProxyWCFNormal.Category CategoriaPorID(int cat);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorID", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDResponse")]
+        System.IAsyncResult BeginCategoriaPorID(int cat, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorID(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoria", ReplyAction="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoriaResponse")]
         ClienteWPF.ProxyWCFNormal.Product[] ProductosPorCategoria(int IdCategoria);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoria", ReplyAction="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoriaResponse")]
+        System.IAsyncResult BeginProductosPorCategoria(int IdCategoria, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Product[] EndProductosPorCategoria(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorId", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorIdResponse")]
         ClienteWPF.ProxyWCFNormal.Category CategoriaYProductosPorId(int cat);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorId", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorIdResponse")]
+        System.IAsyncResult BeginCategoriaYProductosPorId(int cat, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Category EndCategoriaYProductosPorId(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/PedidoPorCliente", ReplyAction="http://com.miempresa.wwww/IServicioNormal/PedidoPorClienteResponse")]
         ClienteWPF.ProxyWCFNormal.Order PedidoPorCliente(string Cliente, int Pedido);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/PedidoPorCliente", ReplyAction="http://com.miempresa.wwww/IServicioNormal/PedidoPorClienteResponse")]
+        System.IAsyncResult BeginPedidoPorCliente(string Cliente, int Pedido, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Order EndPedidoPorCliente(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/PedidosPorCliente", ReplyAction="http://com.miempresa.wwww/IServicioNormal/PedidosPorClienteResponse")]
         ClienteWPF.ProxyWCFNormal.Order[] PedidosPorCliente(string Cliente);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/PedidosPorCliente", ReplyAction="http://com.miempresa.wwww/IServicioNormal/PedidosPorClienteResponse")]
+        System.IAsyncResult BeginPedidosPorCliente(string Cliente, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Order[] EndPedidosPorCliente(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(string), Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresStringFault", Name="string", Namespace="http://schemas.microsoft.com/2003/10/Serialization/")]
@@ -1129,8 +1445,26 @@ namespace ClienteWPF.ProxyWCFNormal {
             "", Name="ClaseError", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF")]
         ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDConErrores(int IdCategoria);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresResponse")]
+        System.IAsyncResult BeginCategoriaPorIDConErrores(int IdCategoria, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorIDConErrores(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausa", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausaResponse")]
         ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDconPausa(int IdCategoria, int segundos);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausa", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausaResponse")]
+        System.IAsyncResult BeginCategoriaPorIDconPausa(int IdCategoria, int segundos, System.AsyncCallback callback, object asyncState);
+        
+        ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorIDconPausa(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/IncrementaContador", ReplyAction="http://com.miempresa.wwww/IServicioNormal/IncrementaContadorResponse")]
+        int IncrementaContador();
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/IncrementaContador", ReplyAction="http://com.miempresa.wwww/IServicioNormal/IncrementaContadorResponse")]
+        System.IAsyncResult BeginIncrementaContador(System.AsyncCallback callback, object asyncState);
+        
+        int EndIncrementaContador(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1139,7 +1473,232 @@ namespace ClienteWPF.ProxyWCFNormal {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CategoriaPorIDCompletedEventArgs1 : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CategoriaPorIDCompletedEventArgs1(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Category)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ProductosPorCategoriaCompletedEventArgs1 : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ProductosPorCategoriaCompletedEventArgs1(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Product[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Product[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CategoriaYProductosPorIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CategoriaYProductosPorIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Category)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PedidoPorClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public PedidoPorClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Order Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Order)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PedidosPorClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public PedidosPorClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Order[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Order[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CategoriaPorIDConErroresCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CategoriaPorIDConErroresCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Category)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CategoriaPorIDconPausaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CategoriaPorIDconPausaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ClienteWPF.ProxyWCFNormal.Category Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ClienteWPF.ProxyWCFNormal.Category)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class IncrementaContadorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public IncrementaContadorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServicioNormalClient : System.ServiceModel.ClientBase<ClienteWPF.ProxyWCFNormal.IServicioNormal>, ClienteWPF.ProxyWCFNormal.IServicioNormal {
+        
+        private BeginOperationDelegate onBeginGetDataDelegate;
+        
+        private EndOperationDelegate onEndGetDataDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetDataCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCategoriaPorIDDelegate;
+        
+        private EndOperationDelegate onEndCategoriaPorIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onCategoriaPorIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginProductosPorCategoriaDelegate;
+        
+        private EndOperationDelegate onEndProductosPorCategoriaDelegate;
+        
+        private System.Threading.SendOrPostCallback onProductosPorCategoriaCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCategoriaYProductosPorIdDelegate;
+        
+        private EndOperationDelegate onEndCategoriaYProductosPorIdDelegate;
+        
+        private System.Threading.SendOrPostCallback onCategoriaYProductosPorIdCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginPedidoPorClienteDelegate;
+        
+        private EndOperationDelegate onEndPedidoPorClienteDelegate;
+        
+        private System.Threading.SendOrPostCallback onPedidoPorClienteCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginPedidosPorClienteDelegate;
+        
+        private EndOperationDelegate onEndPedidosPorClienteDelegate;
+        
+        private System.Threading.SendOrPostCallback onPedidosPorClienteCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCategoriaPorIDConErroresDelegate;
+        
+        private EndOperationDelegate onEndCategoriaPorIDConErroresDelegate;
+        
+        private System.Threading.SendOrPostCallback onCategoriaPorIDConErroresCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCategoriaPorIDconPausaDelegate;
+        
+        private EndOperationDelegate onEndCategoriaPorIDconPausaDelegate;
+        
+        private System.Threading.SendOrPostCallback onCategoriaPorIDconPausaCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginIncrementaContadorDelegate;
+        
+        private EndOperationDelegate onEndIncrementaContadorDelegate;
+        
+        private System.Threading.SendOrPostCallback onIncrementaContadorCompletedDelegate;
         
         public ServicioNormalClient() {
         }
@@ -1160,36 +1719,474 @@ namespace ClienteWPF.ProxyWCFNormal {
                 base(binding, remoteAddress) {
         }
         
+        public event System.EventHandler<GetDataCompletedEventArgs> GetDataCompleted;
+        
+        public event System.EventHandler<CategoriaPorIDCompletedEventArgs1> CategoriaPorIDCompleted;
+        
+        public event System.EventHandler<ProductosPorCategoriaCompletedEventArgs1> ProductosPorCategoriaCompleted;
+        
+        public event System.EventHandler<CategoriaYProductosPorIdCompletedEventArgs> CategoriaYProductosPorIdCompleted;
+        
+        public event System.EventHandler<PedidoPorClienteCompletedEventArgs> PedidoPorClienteCompleted;
+        
+        public event System.EventHandler<PedidosPorClienteCompletedEventArgs> PedidosPorClienteCompleted;
+        
+        public event System.EventHandler<CategoriaPorIDConErroresCompletedEventArgs> CategoriaPorIDConErroresCompleted;
+        
+        public event System.EventHandler<CategoriaPorIDconPausaCompletedEventArgs> CategoriaPorIDconPausaCompleted;
+        
+        public event System.EventHandler<IncrementaContadorCompletedEventArgs> IncrementaContadorCompleted;
+        
         public string GetData(int value) {
             return base.Channel.GetData(value);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetData(int value, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetData(value, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public string EndGetData(System.IAsyncResult result) {
+            return base.Channel.EndGetData(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetData(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int value = ((int)(inValues[0]));
+            return this.BeginGetData(value, callback, asyncState);
+        }
+        
+        private object[] OnEndGetData(System.IAsyncResult result) {
+            string retVal = this.EndGetData(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetDataCompleted(object state) {
+            if ((this.GetDataCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetDataCompleted(this, new GetDataCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetDataAsync(int value) {
+            this.GetDataAsync(value, null);
+        }
+        
+        public void GetDataAsync(int value, object userState) {
+            if ((this.onBeginGetDataDelegate == null)) {
+                this.onBeginGetDataDelegate = new BeginOperationDelegate(this.OnBeginGetData);
+            }
+            if ((this.onEndGetDataDelegate == null)) {
+                this.onEndGetDataDelegate = new EndOperationDelegate(this.OnEndGetData);
+            }
+            if ((this.onGetDataCompletedDelegate == null)) {
+                this.onGetDataCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDataCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetDataDelegate, new object[] {
+                        value}, this.onEndGetDataDelegate, this.onGetDataCompletedDelegate, userState);
         }
         
         public ClienteWPF.ProxyWCFNormal.Category CategoriaPorID(int cat) {
             return base.Channel.CategoriaPorID(cat);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCategoriaPorID(int cat, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCategoriaPorID(cat, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorID(System.IAsyncResult result) {
+            return base.Channel.EndCategoriaPorID(result);
+        }
+        
+        private System.IAsyncResult OnBeginCategoriaPorID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int cat = ((int)(inValues[0]));
+            return this.BeginCategoriaPorID(cat, callback, asyncState);
+        }
+        
+        private object[] OnEndCategoriaPorID(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Category retVal = this.EndCategoriaPorID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCategoriaPorIDCompleted(object state) {
+            if ((this.CategoriaPorIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CategoriaPorIDCompleted(this, new CategoriaPorIDCompletedEventArgs1(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CategoriaPorIDAsync(int cat) {
+            this.CategoriaPorIDAsync(cat, null);
+        }
+        
+        public void CategoriaPorIDAsync(int cat, object userState) {
+            if ((this.onBeginCategoriaPorIDDelegate == null)) {
+                this.onBeginCategoriaPorIDDelegate = new BeginOperationDelegate(this.OnBeginCategoriaPorID);
+            }
+            if ((this.onEndCategoriaPorIDDelegate == null)) {
+                this.onEndCategoriaPorIDDelegate = new EndOperationDelegate(this.OnEndCategoriaPorID);
+            }
+            if ((this.onCategoriaPorIDCompletedDelegate == null)) {
+                this.onCategoriaPorIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCategoriaPorIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginCategoriaPorIDDelegate, new object[] {
+                        cat}, this.onEndCategoriaPorIDDelegate, this.onCategoriaPorIDCompletedDelegate, userState);
+        }
+        
         public ClienteWPF.ProxyWCFNormal.Product[] ProductosPorCategoria(int IdCategoria) {
             return base.Channel.ProductosPorCategoria(IdCategoria);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginProductosPorCategoria(int IdCategoria, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginProductosPorCategoria(IdCategoria, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Product[] EndProductosPorCategoria(System.IAsyncResult result) {
+            return base.Channel.EndProductosPorCategoria(result);
+        }
+        
+        private System.IAsyncResult OnBeginProductosPorCategoria(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int IdCategoria = ((int)(inValues[0]));
+            return this.BeginProductosPorCategoria(IdCategoria, callback, asyncState);
+        }
+        
+        private object[] OnEndProductosPorCategoria(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Product[] retVal = this.EndProductosPorCategoria(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnProductosPorCategoriaCompleted(object state) {
+            if ((this.ProductosPorCategoriaCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ProductosPorCategoriaCompleted(this, new ProductosPorCategoriaCompletedEventArgs1(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ProductosPorCategoriaAsync(int IdCategoria) {
+            this.ProductosPorCategoriaAsync(IdCategoria, null);
+        }
+        
+        public void ProductosPorCategoriaAsync(int IdCategoria, object userState) {
+            if ((this.onBeginProductosPorCategoriaDelegate == null)) {
+                this.onBeginProductosPorCategoriaDelegate = new BeginOperationDelegate(this.OnBeginProductosPorCategoria);
+            }
+            if ((this.onEndProductosPorCategoriaDelegate == null)) {
+                this.onEndProductosPorCategoriaDelegate = new EndOperationDelegate(this.OnEndProductosPorCategoria);
+            }
+            if ((this.onProductosPorCategoriaCompletedDelegate == null)) {
+                this.onProductosPorCategoriaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnProductosPorCategoriaCompleted);
+            }
+            base.InvokeAsync(this.onBeginProductosPorCategoriaDelegate, new object[] {
+                        IdCategoria}, this.onEndProductosPorCategoriaDelegate, this.onProductosPorCategoriaCompletedDelegate, userState);
         }
         
         public ClienteWPF.ProxyWCFNormal.Category CategoriaYProductosPorId(int cat) {
             return base.Channel.CategoriaYProductosPorId(cat);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCategoriaYProductosPorId(int cat, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCategoriaYProductosPorId(cat, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Category EndCategoriaYProductosPorId(System.IAsyncResult result) {
+            return base.Channel.EndCategoriaYProductosPorId(result);
+        }
+        
+        private System.IAsyncResult OnBeginCategoriaYProductosPorId(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int cat = ((int)(inValues[0]));
+            return this.BeginCategoriaYProductosPorId(cat, callback, asyncState);
+        }
+        
+        private object[] OnEndCategoriaYProductosPorId(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Category retVal = this.EndCategoriaYProductosPorId(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCategoriaYProductosPorIdCompleted(object state) {
+            if ((this.CategoriaYProductosPorIdCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CategoriaYProductosPorIdCompleted(this, new CategoriaYProductosPorIdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CategoriaYProductosPorIdAsync(int cat) {
+            this.CategoriaYProductosPorIdAsync(cat, null);
+        }
+        
+        public void CategoriaYProductosPorIdAsync(int cat, object userState) {
+            if ((this.onBeginCategoriaYProductosPorIdDelegate == null)) {
+                this.onBeginCategoriaYProductosPorIdDelegate = new BeginOperationDelegate(this.OnBeginCategoriaYProductosPorId);
+            }
+            if ((this.onEndCategoriaYProductosPorIdDelegate == null)) {
+                this.onEndCategoriaYProductosPorIdDelegate = new EndOperationDelegate(this.OnEndCategoriaYProductosPorId);
+            }
+            if ((this.onCategoriaYProductosPorIdCompletedDelegate == null)) {
+                this.onCategoriaYProductosPorIdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCategoriaYProductosPorIdCompleted);
+            }
+            base.InvokeAsync(this.onBeginCategoriaYProductosPorIdDelegate, new object[] {
+                        cat}, this.onEndCategoriaYProductosPorIdDelegate, this.onCategoriaYProductosPorIdCompletedDelegate, userState);
+        }
+        
         public ClienteWPF.ProxyWCFNormal.Order PedidoPorCliente(string Cliente, int Pedido) {
             return base.Channel.PedidoPorCliente(Cliente, Pedido);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginPedidoPorCliente(string Cliente, int Pedido, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPedidoPorCliente(Cliente, Pedido, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Order EndPedidoPorCliente(System.IAsyncResult result) {
+            return base.Channel.EndPedidoPorCliente(result);
+        }
+        
+        private System.IAsyncResult OnBeginPedidoPorCliente(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string Cliente = ((string)(inValues[0]));
+            int Pedido = ((int)(inValues[1]));
+            return this.BeginPedidoPorCliente(Cliente, Pedido, callback, asyncState);
+        }
+        
+        private object[] OnEndPedidoPorCliente(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Order retVal = this.EndPedidoPorCliente(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnPedidoPorClienteCompleted(object state) {
+            if ((this.PedidoPorClienteCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PedidoPorClienteCompleted(this, new PedidoPorClienteCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PedidoPorClienteAsync(string Cliente, int Pedido) {
+            this.PedidoPorClienteAsync(Cliente, Pedido, null);
+        }
+        
+        public void PedidoPorClienteAsync(string Cliente, int Pedido, object userState) {
+            if ((this.onBeginPedidoPorClienteDelegate == null)) {
+                this.onBeginPedidoPorClienteDelegate = new BeginOperationDelegate(this.OnBeginPedidoPorCliente);
+            }
+            if ((this.onEndPedidoPorClienteDelegate == null)) {
+                this.onEndPedidoPorClienteDelegate = new EndOperationDelegate(this.OnEndPedidoPorCliente);
+            }
+            if ((this.onPedidoPorClienteCompletedDelegate == null)) {
+                this.onPedidoPorClienteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPedidoPorClienteCompleted);
+            }
+            base.InvokeAsync(this.onBeginPedidoPorClienteDelegate, new object[] {
+                        Cliente,
+                        Pedido}, this.onEndPedidoPorClienteDelegate, this.onPedidoPorClienteCompletedDelegate, userState);
         }
         
         public ClienteWPF.ProxyWCFNormal.Order[] PedidosPorCliente(string Cliente) {
             return base.Channel.PedidosPorCliente(Cliente);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginPedidosPorCliente(string Cliente, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPedidosPorCliente(Cliente, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Order[] EndPedidosPorCliente(System.IAsyncResult result) {
+            return base.Channel.EndPedidosPorCliente(result);
+        }
+        
+        private System.IAsyncResult OnBeginPedidosPorCliente(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string Cliente = ((string)(inValues[0]));
+            return this.BeginPedidosPorCliente(Cliente, callback, asyncState);
+        }
+        
+        private object[] OnEndPedidosPorCliente(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Order[] retVal = this.EndPedidosPorCliente(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnPedidosPorClienteCompleted(object state) {
+            if ((this.PedidosPorClienteCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PedidosPorClienteCompleted(this, new PedidosPorClienteCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PedidosPorClienteAsync(string Cliente) {
+            this.PedidosPorClienteAsync(Cliente, null);
+        }
+        
+        public void PedidosPorClienteAsync(string Cliente, object userState) {
+            if ((this.onBeginPedidosPorClienteDelegate == null)) {
+                this.onBeginPedidosPorClienteDelegate = new BeginOperationDelegate(this.OnBeginPedidosPorCliente);
+            }
+            if ((this.onEndPedidosPorClienteDelegate == null)) {
+                this.onEndPedidosPorClienteDelegate = new EndOperationDelegate(this.OnEndPedidosPorCliente);
+            }
+            if ((this.onPedidosPorClienteCompletedDelegate == null)) {
+                this.onPedidosPorClienteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPedidosPorClienteCompleted);
+            }
+            base.InvokeAsync(this.onBeginPedidosPorClienteDelegate, new object[] {
+                        Cliente}, this.onEndPedidosPorClienteDelegate, this.onPedidosPorClienteCompletedDelegate, userState);
+        }
+        
         public ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDConErrores(int IdCategoria) {
             return base.Channel.CategoriaPorIDConErrores(IdCategoria);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCategoriaPorIDConErrores(int IdCategoria, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCategoriaPorIDConErrores(IdCategoria, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorIDConErrores(System.IAsyncResult result) {
+            return base.Channel.EndCategoriaPorIDConErrores(result);
+        }
+        
+        private System.IAsyncResult OnBeginCategoriaPorIDConErrores(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int IdCategoria = ((int)(inValues[0]));
+            return this.BeginCategoriaPorIDConErrores(IdCategoria, callback, asyncState);
+        }
+        
+        private object[] OnEndCategoriaPorIDConErrores(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Category retVal = this.EndCategoriaPorIDConErrores(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCategoriaPorIDConErroresCompleted(object state) {
+            if ((this.CategoriaPorIDConErroresCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CategoriaPorIDConErroresCompleted(this, new CategoriaPorIDConErroresCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CategoriaPorIDConErroresAsync(int IdCategoria) {
+            this.CategoriaPorIDConErroresAsync(IdCategoria, null);
+        }
+        
+        public void CategoriaPorIDConErroresAsync(int IdCategoria, object userState) {
+            if ((this.onBeginCategoriaPorIDConErroresDelegate == null)) {
+                this.onBeginCategoriaPorIDConErroresDelegate = new BeginOperationDelegate(this.OnBeginCategoriaPorIDConErrores);
+            }
+            if ((this.onEndCategoriaPorIDConErroresDelegate == null)) {
+                this.onEndCategoriaPorIDConErroresDelegate = new EndOperationDelegate(this.OnEndCategoriaPorIDConErrores);
+            }
+            if ((this.onCategoriaPorIDConErroresCompletedDelegate == null)) {
+                this.onCategoriaPorIDConErroresCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCategoriaPorIDConErroresCompleted);
+            }
+            base.InvokeAsync(this.onBeginCategoriaPorIDConErroresDelegate, new object[] {
+                        IdCategoria}, this.onEndCategoriaPorIDConErroresDelegate, this.onCategoriaPorIDConErroresCompletedDelegate, userState);
+        }
+        
         public ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDconPausa(int IdCategoria, int segundos) {
             return base.Channel.CategoriaPorIDconPausa(IdCategoria, segundos);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCategoriaPorIDconPausa(int IdCategoria, int segundos, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCategoriaPorIDconPausa(IdCategoria, segundos, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ClienteWPF.ProxyWCFNormal.Category EndCategoriaPorIDconPausa(System.IAsyncResult result) {
+            return base.Channel.EndCategoriaPorIDconPausa(result);
+        }
+        
+        private System.IAsyncResult OnBeginCategoriaPorIDconPausa(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int IdCategoria = ((int)(inValues[0]));
+            int segundos = ((int)(inValues[1]));
+            return this.BeginCategoriaPorIDconPausa(IdCategoria, segundos, callback, asyncState);
+        }
+        
+        private object[] OnEndCategoriaPorIDconPausa(System.IAsyncResult result) {
+            ClienteWPF.ProxyWCFNormal.Category retVal = this.EndCategoriaPorIDconPausa(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCategoriaPorIDconPausaCompleted(object state) {
+            if ((this.CategoriaPorIDconPausaCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CategoriaPorIDconPausaCompleted(this, new CategoriaPorIDconPausaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CategoriaPorIDconPausaAsync(int IdCategoria, int segundos) {
+            this.CategoriaPorIDconPausaAsync(IdCategoria, segundos, null);
+        }
+        
+        public void CategoriaPorIDconPausaAsync(int IdCategoria, int segundos, object userState) {
+            if ((this.onBeginCategoriaPorIDconPausaDelegate == null)) {
+                this.onBeginCategoriaPorIDconPausaDelegate = new BeginOperationDelegate(this.OnBeginCategoriaPorIDconPausa);
+            }
+            if ((this.onEndCategoriaPorIDconPausaDelegate == null)) {
+                this.onEndCategoriaPorIDconPausaDelegate = new EndOperationDelegate(this.OnEndCategoriaPorIDconPausa);
+            }
+            if ((this.onCategoriaPorIDconPausaCompletedDelegate == null)) {
+                this.onCategoriaPorIDconPausaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCategoriaPorIDconPausaCompleted);
+            }
+            base.InvokeAsync(this.onBeginCategoriaPorIDconPausaDelegate, new object[] {
+                        IdCategoria,
+                        segundos}, this.onEndCategoriaPorIDconPausaDelegate, this.onCategoriaPorIDconPausaCompletedDelegate, userState);
+        }
+        
+        public int IncrementaContador() {
+            return base.Channel.IncrementaContador();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginIncrementaContador(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginIncrementaContador(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public int EndIncrementaContador(System.IAsyncResult result) {
+            return base.Channel.EndIncrementaContador(result);
+        }
+        
+        private System.IAsyncResult OnBeginIncrementaContador(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return this.BeginIncrementaContador(callback, asyncState);
+        }
+        
+        private object[] OnEndIncrementaContador(System.IAsyncResult result) {
+            int retVal = this.EndIncrementaContador(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnIncrementaContadorCompleted(object state) {
+            if ((this.IncrementaContadorCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.IncrementaContadorCompleted(this, new IncrementaContadorCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void IncrementaContadorAsync() {
+            this.IncrementaContadorAsync(null);
+        }
+        
+        public void IncrementaContadorAsync(object userState) {
+            if ((this.onBeginIncrementaContadorDelegate == null)) {
+                this.onBeginIncrementaContadorDelegate = new BeginOperationDelegate(this.OnBeginIncrementaContador);
+            }
+            if ((this.onEndIncrementaContadorDelegate == null)) {
+                this.onEndIncrementaContadorDelegate = new EndOperationDelegate(this.OnEndIncrementaContador);
+            }
+            if ((this.onIncrementaContadorCompletedDelegate == null)) {
+                this.onIncrementaContadorCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnIncrementaContadorCompleted);
+            }
+            base.InvokeAsync(this.onBeginIncrementaContadorDelegate, null, this.onEndIncrementaContadorDelegate, this.onIncrementaContadorCompletedDelegate, userState);
         }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8486c82f-74c4-451d-8f35-1e226336bbe1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
-    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -21,7 +21,9 @@
     <MetadataSource Address="http://localhost:50564/ServicioNormal.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="ServicioNormal2.wsdl" MetadataType="Wsdl" ID="094ac454-2705-4d58-9b83-7d189562b6a3" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?wsdl=wsdl1" />
     <MetadataFile FileName="ServicioNormal2.xsd" MetadataType="Schema" ID="7b6a4c49-98b8-48c5-a040-b86212f55ab5" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioNormal3.xsd" MetadataType="Schema" ID="d8935315-ba60-4106-a7ab-1647c343338a" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd5" />
     <MetadataFile FileName="ServicioNormal21.xsd" MetadataType="Schema" ID="e2842994-db25-4971-8ce3-c5277a3a81de" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd4" />
     <MetadataFile FileName="ServicioNormal.xsd" MetadataType="Schema" ID="f986a2a9-cd10-48bf-b0a1-77a571ce2e91" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd0" />
     <MetadataFile FileName="ServicioNormal22.xsd" MetadataType="Schema" ID="726b8386-bb36-4cfe-bcee-38484921e29d" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd2" />

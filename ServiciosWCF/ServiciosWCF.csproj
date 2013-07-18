@@ -61,7 +61,11 @@
     </Content>
     <Content Include="ServicioNormal.svc" />
     <Content Include="ServicioCurso.asmx" />
-    <Content Include="Web.config" />
+    <Content Include="ServicioPorLlamada.svc" />
+    <Content Include="ServicioPorSesion.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -72,6 +76,11 @@
   <ItemGroup>
     <Compile Include="ClaseCategoria.cs" />
     <Compile Include="ClaseError.cs" />
+    <Compile Include="ClaseServicios.cs" />
+    <Compile Include="IServicioGeneral.cs" />
+    <Compile Include="IService2.cs" />
+    <Compile Include="IServicioPorLlamada.cs" />
+    <Compile Include="IServicioPorSesion.cs" />
     <Compile Include="NWModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,6 +94,12 @@
     <Compile Include="ServicioCurso.asmx.cs">
       <DependentUpon>ServicioCurso.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ServicioPorLlamada.svc.cs">
+      <DependentUpon>ServicioPorLlamada.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioPorSesion.svc.cs">
+      <DependentUpon>ServicioPorSesion.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
