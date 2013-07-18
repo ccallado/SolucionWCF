@@ -194,9 +194,9 @@
           <Property Type="Int32" Name="OrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="CustomerID" MaxLength="5" FixedLength="true" Unicode="true" />
           <Property Type="Int32" Name="EmployeeID" />
-          <Property Type="DateTime" Name="OrderDate" />
-          <Property Type="DateTime" Name="RequiredDate" />
-          <Property Type="DateTime" Name="ShippedDate" />
+          <Property Type="DateTime" Name="OrderDate" Precision="3" />
+          <Property Type="DateTime" Name="RequiredDate" Precision="3" />
+          <Property Type="DateTime" Name="ShippedDate" Precision="3" />
           <Property Type="Int32" Name="ShipVia" />
           <Property Type="Decimal" Name="Freight" Precision="19" Scale="4" />
           <Property Type="String" Name="ShipName" MaxLength="40" FixedLength="false" Unicode="true" />

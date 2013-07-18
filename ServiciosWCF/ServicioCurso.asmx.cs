@@ -70,7 +70,7 @@ namespace ServiciosWCF
                 //    );
 
                 List<ClaseCategoria> cats = new List<ClaseCategoria>();
-                foreach (Category c in ne.Categories.Include("Products"))
+                foreach (Category c in ne.Categories.Include("RelProducts"))
                     cats.Add(new ClaseCategoria(c, c.RelProducts.ToList()));
 
                 return cats.ToList();
