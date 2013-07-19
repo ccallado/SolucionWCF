@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://com.miempresa.wwww" elementFormDefault="qualified" targetNamespace="http://com.miempresa.wwww" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/ServiciosWCF/ServicioNormal.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF" />
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cat" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="CategoriaPorIDResult" nillable="true" type="q1:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductosPorCategoria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductosPorCategoriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="ProductosPorCategoriaResult" nillable="true" type="q2:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaYProductosPorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cat" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaYProductosPorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="CategoriaYProductosPorIdResult" nillable="true" type="q3:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidoPorCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cliente" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Pedido" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidoPorClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="PedidoPorClienteResult" nillable="true" type="q4:Order" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidosPorCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cliente" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidosPorClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="PedidosPorClienteResult" nillable="true" type="q5:ArrayOfOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDConErrores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDConErroresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="CategoriaPorIDConErroresResult" nillable="true" type="q6:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDconPausa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
+        <xs:element minOccurs="0" name="segundos" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriaPorIDconPausaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServiciosWCF" minOccurs="0" name="CategoriaPorIDconPausaResult" nillable="true" type="q7:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IncrementaContador">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IncrementaContadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IncrementaContadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

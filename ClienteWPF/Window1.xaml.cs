@@ -75,5 +75,14 @@ namespace ClienteWPF
                 MessageBox.Show(cad);
             }
         }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProxyIIS.ServicioNormalAuxClient s =
+                new ProxyIIS.ServicioNormalAuxClient())
+            {
+                MessageBox.Show("Hora del Servidor: " + s.Hora());
+            }
+        }
     }
 }

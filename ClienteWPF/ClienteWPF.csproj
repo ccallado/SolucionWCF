@@ -59,6 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\ProxyIIS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ProxyPorLlamada\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,6 +140,36 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\ProxyIIS\ClienteWPF.ProxyIIS.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProxyIIS\ClienteWPF.ProxyIIS.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProxyIIS\ClienteWPF.ProxyIIS.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProxyIIS\ServicioNormal.wsdl" />
+    <None Include="Service References\ProxyIIS\ServicioNormal.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyIIS\ServicioNormal1.wsdl" />
+    <None Include="Service References\ProxyIIS\ServicioNormal1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyIIS\ServicioNormal2.wsdl" />
+    <None Include="Service References\ProxyIIS\ServicioNormal2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyIIS\ServicioNormal3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyIIS\ServicioNormal4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyIIS\ServicioNormal5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ProxyPorLlamada\ServicioPorLlamada.wsdl" />
     <None Include="Service References\ProxyPorLlamada\ServicioPorLlamada.xsd">
       <SubType>Designer</SubType>
@@ -221,6 +256,7 @@
     <None Include="Web References\ProxyWS\ServicioCurso.disco" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ProxyIIS\" />
     <WCFMetadataStorage Include="Service References\ProxyPorLlamada\" />
     <WCFMetadataStorage Include="Service References\ProxyPorSesion\" />
     <WCFMetadataStorage Include="Service References\ProxySingle\" />
@@ -282,6 +318,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ProxySingle\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyIIS\ServicioNormal.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyIIS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyIIS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxyIIS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

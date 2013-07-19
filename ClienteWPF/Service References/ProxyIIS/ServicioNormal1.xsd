@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServiciosWCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServiciosWCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/ServiciosWCF/ServicioNormal.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="Category">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+          <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="RelProducts" nillable="true" type="tns:ArrayOfProduct" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="Product">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Discontinued" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QuantityPerUnit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RelCategory" nillable="true" type="tns:Category" />
+          <xs:element minOccurs="0" name="RelCategoryReference" nillable="true" type="q2:EntityReferenceOfCategory7Zl6WYH6" />
+          <xs:element minOccurs="0" name="RelOrder_Details" nillable="true" type="tns:ArrayOfOrder_Detail" />
+          <xs:element minOccurs="0" name="ReorderLevel" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="SupplierID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UnitPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UnitsInStock" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="UnitsOnOrder" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfOrder_Detail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order_Detail" nillable="true" type="tns:Order_Detail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrder_Detail" nillable="true" type="tns:ArrayOfOrder_Detail" />
+  <xs:complexType name="Order_Detail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Discount" type="xs:float" />
+          <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:short" />
+          <xs:element minOccurs="0" name="RelOrder" nillable="true" type="tns:Order" />
+          <xs:element minOccurs="0" name="RelOrderReference" nillable="true" type="q3:EntityReferenceOfOrder7Zl6WYH6" />
+          <xs:element minOccurs="0" name="RelProduct" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="RelProductReference" nillable="true" type="q3:EntityReferenceOfProduct7Zl6WYH6" />
+          <xs:element minOccurs="0" name="UnitPrice" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Order_Detail" nillable="true" type="tns:Order_Detail" />
+  <xs:complexType name="Order">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Freight" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OrderDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+          <xs:element minOccurs="0" name="RelOrder_Details" nillable="true" type="tns:ArrayOfOrder_Detail" />
+          <xs:element minOccurs="0" name="RequiredDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ShipAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipCountry" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipPostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipRegion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShipVia" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ShippedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="ArrayOfOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
+  <xs:complexType name="ClaseError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Datos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Error" type="tns:enumTipoError" />
+      <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClaseError" nillable="true" type="tns:ClaseError" />
+  <xs:simpleType name="enumTipoError">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CategoriaNoEncontrada" />
+      <xs:enumeration value="CategoriaErronea" />
+      <xs:enumeration value="Otros" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumTipoError" nillable="true" type="tns:enumTipoError" />
+</xs:schema>

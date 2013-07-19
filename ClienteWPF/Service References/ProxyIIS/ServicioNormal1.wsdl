@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://com.miempresa.wwww" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:i1="http://com.miempresa2.wwww" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioNormal" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://com.miempresa.wwww" location="http://localhost/ServiciosWCF/ServicioNormal.svc?wsdl=wsdl0" />
+  <wsdl:import namespace="http://com.miempresa2.wwww" location="http://localhost/ServiciosWCF/ServicioNormal.svc?wsdl=wsdl1" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_IServicioNormal" type="i0:IServicioNormal">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaPorID">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPorCategoria">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/ProductosPorCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaYProductosPorId">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/CategoriaYProductosPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PedidoPorCliente">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/PedidoPorCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PedidosPorCliente">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/PedidosPorCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaPorIDConErrores">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ClaseErrorFault">
+        <soap:fault use="literal" name="ClaseErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaPorIDconPausa">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDconPausa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncrementaContador">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/IncrementaContador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IServicioNormalAux" type="i1:IServicioNormalAux">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CategoriaPorID">
+      <soap:operation soapAction="http://com.miempresa2.wwww/IServicioNormalAux/CategoriaPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPorCategoria">
+      <soap:operation soapAction="http://com.miempresa2.wwww/IServicioNormalAux/ProductosPorCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hora">
+      <soap:operation soapAction="http://com.miempresa2.wwww/IServicioNormalAux/Hora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioNormal">
+    <wsdl:port name="BasicHttpBinding_IServicioNormal" binding="tns:BasicHttpBinding_IServicioNormal">
+      <soap:address location="http://localhost/ServiciosWCF/ServicioNormal.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IServicioNormalAux" binding="tns:BasicHttpBinding_IServicioNormalAux">
+      <soap:address location="http://localhost/ServiciosWCF/ServicioNormal.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
