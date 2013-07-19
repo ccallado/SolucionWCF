@@ -12,37 +12,37 @@ namespace ClienteWPF.ProxyPorLlamada {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyPorLlamada.IServicioGeneral")]
-    public interface IServicioGeneral {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyPorLlamada.IServicioPorLlamada")]
+    public interface IServicioPorLlamada {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGeneral/IncrementaContador", ReplyAction="http://tempuri.org/IServicioGeneral/IncrementaContadorResponse")]
         int IncrementaContador(int segundosParada);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServicioGeneralChannel : ClienteWPF.ProxyPorLlamada.IServicioGeneral, System.ServiceModel.IClientChannel {
+    public interface IServicioPorLlamadaChannel : ClienteWPF.ProxyPorLlamada.IServicioPorLlamada, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioGeneralClient : System.ServiceModel.ClientBase<ClienteWPF.ProxyPorLlamada.IServicioGeneral>, ClienteWPF.ProxyPorLlamada.IServicioGeneral {
+    public partial class ServicioPorLlamadaClient : System.ServiceModel.ClientBase<ClienteWPF.ProxyPorLlamada.IServicioPorLlamada>, ClienteWPF.ProxyPorLlamada.IServicioPorLlamada {
         
-        public ServicioGeneralClient() {
+        public ServicioPorLlamadaClient() {
         }
         
-        public ServicioGeneralClient(string endpointConfigurationName) : 
+        public ServicioPorLlamadaClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServicioGeneralClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServicioPorLlamadaClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioGeneralClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServicioPorLlamadaClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioGeneralClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServicioPorLlamadaClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

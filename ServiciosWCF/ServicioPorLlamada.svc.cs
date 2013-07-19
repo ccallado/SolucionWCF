@@ -10,7 +10,7 @@ namespace ServiciosWCF
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServicioPorLlamada" en el código, en svc y en el archivo de configuración a la vez.
     //PerCall al ser por defecto no es necesario ponerlo
     [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerCall)]
-    public class ServicioPorLlamada : IServicioGeneral 
+    public class ServicioPorLlamada : IServicioPorLlamada  
     {
         //variable privada
         ClaseServicios cs;

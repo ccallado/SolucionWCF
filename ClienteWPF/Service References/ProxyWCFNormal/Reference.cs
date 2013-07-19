@@ -1440,9 +1440,9 @@ namespace ClienteWPF.ProxyWCFNormal {
         ClienteWPF.ProxyWCFNormal.Order[] EndPedidosPorCliente(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(string), Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresStringFault", Name="string", Namespace="http://schemas.microsoft.com/2003/10/Serialization/")]
         [System.ServiceModel.FaultContractAttribute(typeof(ClienteWPF.ProxyWCFNormal.ClaseError), Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresClaseErrorFault" +
             "", Name="ClaseError", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF")]
+        [System.ServiceModel.FaultContractAttribute(typeof(string), Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresStringFault", Name="string", Namespace="http://schemas.microsoft.com/2003/10/Serialization/")]
         ClienteWPF.ProxyWCFNormal.Category CategoriaPorIDConErrores(int IdCategoria);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErrores", ReplyAction="http://com.miempresa.wwww/IServicioNormal/CategoriaPorIDConErroresResponse")]

@@ -9,7 +9,7 @@ namespace ServiciosWCF
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServicioPorSesion" en el código, en svc y en el archivo de configuración a la vez.
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession )]
-    public class ServicioPorSesion : IServicioGeneral 
+    public class ServicioPorSesion : IServicioPorSesion 
     {
         //variable privada
         ClaseServicios cs;

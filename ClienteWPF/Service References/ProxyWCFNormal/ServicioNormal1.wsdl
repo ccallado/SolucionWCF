@@ -67,11 +67,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="StringFault">
-        <soap:fault use="literal" name="StringFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="ClaseErrorFault">
         <soap:fault use="literal" name="ClaseErrorFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="StringFault">
+        <soap:fault use="literal" name="StringFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="CategoriaPorIDconPausa">

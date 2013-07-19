@@ -27,7 +27,7 @@ namespace ClienteWPF
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            using (ProxyPorLlamada.ServicioPorLlamadaClient s =
+            using (ProxyPorLlamada.ServicioPorLlamadaClient  s =
                    new ProxyPorLlamada.ServicioPorLlamadaClient())
             {
                 cad = "";
@@ -43,7 +43,7 @@ namespace ClienteWPF
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            using (ProxyPorSesion. ProxyPorSesion.ServicioPorSesionClient s =
+            using (ProxyPorSesion.ServicioPorSesionClient  s =
                    new ProxyPorSesion.ServicioPorSesionClient())
             {
                 cad = "";

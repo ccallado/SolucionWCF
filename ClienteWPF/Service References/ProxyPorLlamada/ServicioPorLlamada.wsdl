@@ -6,19 +6,19 @@
       <xsd:import schemaLocation="http://localhost:50564/ServicioPorLlamada.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IServicioGeneral_IncrementaContador_InputMessage">
+  <wsdl:message name="IServicioPorLlamada_IncrementaContador_InputMessage">
     <wsdl:part name="parameters" element="tns:IncrementaContador" />
   </wsdl:message>
-  <wsdl:message name="IServicioGeneral_IncrementaContador_OutputMessage">
+  <wsdl:message name="IServicioPorLlamada_IncrementaContador_OutputMessage">
     <wsdl:part name="parameters" element="tns:IncrementaContadorResponse" />
   </wsdl:message>
-  <wsdl:portType name="IServicioGeneral">
+  <wsdl:portType name="IServicioPorLlamada">
     <wsdl:operation name="IncrementaContador">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGeneral/IncrementaContador" message="tns:IServicioGeneral_IncrementaContador_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGeneral/IncrementaContadorResponse" message="tns:IServicioGeneral_IncrementaContador_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGeneral/IncrementaContador" message="tns:IServicioPorLlamada_IncrementaContador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGeneral/IncrementaContadorResponse" message="tns:IServicioPorLlamada_IncrementaContador_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IServicioGeneral" type="tns:IServicioGeneral">
+  <wsdl:binding name="BasicHttpBinding_IServicioPorLlamada" type="tns:IServicioPorLlamada">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="IncrementaContador">
       <soap:operation soapAction="http://tempuri.org/IServicioGeneral/IncrementaContador" style="document" />
@@ -31,7 +31,7 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicioPorLlamada">
-    <wsdl:port name="BasicHttpBinding_IServicioGeneral" binding="tns:BasicHttpBinding_IServicioGeneral">
+    <wsdl:port name="BasicHttpBinding_IServicioPorLlamada" binding="tns:BasicHttpBinding_IServicioPorLlamada">
       <soap:address location="http://localhost:50564/ServicioPorLlamada.svc" />
     </wsdl:port>
   </wsdl:service>

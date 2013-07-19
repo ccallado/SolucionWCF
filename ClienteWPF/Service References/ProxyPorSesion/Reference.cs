@@ -12,37 +12,37 @@ namespace ClienteWPF.ProxyPorSesion {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyPorSesion.IServicioGeneral")]
-    public interface IServicioGeneral {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyPorSesion.IServicioPorSesion")]
+    public interface IServicioPorSesion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGeneral/IncrementaContador", ReplyAction="http://tempuri.org/IServicioGeneral/IncrementaContadorResponse")]
         int IncrementaContador(int segundosParada);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServicioGeneralChannel : ClienteWPF.ProxyPorSesion.IServicioGeneral, System.ServiceModel.IClientChannel {
+    public interface IServicioPorSesionChannel : ClienteWPF.ProxyPorSesion.IServicioPorSesion, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioGeneralClient : System.ServiceModel.ClientBase<ClienteWPF.ProxyPorSesion.IServicioGeneral>, ClienteWPF.ProxyPorSesion.IServicioGeneral {
+    public partial class ServicioPorSesionClient : System.ServiceModel.ClientBase<ClienteWPF.ProxyPorSesion.IServicioPorSesion>, ClienteWPF.ProxyPorSesion.IServicioPorSesion {
         
-        public ServicioGeneralClient() {
+        public ServicioPorSesionClient() {
         }
         
-        public ServicioGeneralClient(string endpointConfigurationName) : 
+        public ServicioPorSesionClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServicioGeneralClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServicioPorSesionClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioGeneralClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServicioPorSesionClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicioGeneralClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServicioPorSesionClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
