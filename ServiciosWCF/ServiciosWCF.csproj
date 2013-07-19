@@ -63,6 +63,7 @@
     <Content Include="ServicioCurso.asmx" />
     <Content Include="ServicioPorLlamada.svc" />
     <Content Include="ServicioPorSesion.svc" />
+    <Content Include="ServicioSingle.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -81,6 +82,7 @@
     <Compile Include="IService2.cs" />
     <Compile Include="IServicioPorLlamada.cs" />
     <Compile Include="IServicioPorSesion.cs" />
+    <Compile Include="IServicioSingle.cs" />
     <Compile Include="NWModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +102,9 @@
     </Compile>
     <Compile Include="ServicioPorSesion.svc.cs">
       <DependentUpon>ServicioPorSesion.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioSingle.svc.cs">
+      <DependentUpon>ServicioSingle.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

@@ -11,8 +11,15 @@ namespace ServiciosWCF
 
         internal int IncrementaContador(int segundosParada)
         {
-            System.Threading.Thread.Sleep(segundosParada * 1000);
-            return ++Contador;
+            System.Threading.Thread.Sleep(segundosParada * 500);
+            Contador++;
+            System.Threading.Thread.Sleep(segundosParada * 500);
+            return Contador;
+        }
+
+        internal void ReseteaContador()
+        {
+            Contador = 0;
         }
     }
 }

@@ -59,7 +59,21 @@ namespace ClienteWPF
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
+            using (ProxySingle.ServicioSingleClient s =
+                   new ProxySingle.ServicioSingleClient())
+            {
+                if (checkBox1.IsChecked.Value)
+                    s.ReseteaContador();
 
+                cad = "";
+                for (int i = 1; i <= 3; i++)
+                {
+                    cad += "\n" + i + " -> contador: " +
+                           s.IncrementaContador(int.Parse(textBox1.Text));
+                }
+
+                MessageBox.Show(cad);
+            }
         }
     }
 }

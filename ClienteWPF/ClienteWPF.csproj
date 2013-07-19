@@ -69,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ProxySingle\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ProxyWCFNormal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,6 +149,13 @@
     <None Include="Service References\ProxyPorSesion\ServicioPorSesion1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ProxySingle\ServicioSingle.wsdl" />
+    <None Include="Service References\ProxySingle\ServicioSingle.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxySingle\ServicioSingle1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ProxyWCFNormal\ClienteWPF.ProxyWCFNormal.Category.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -211,6 +223,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ProxyPorLlamada\" />
     <WCFMetadataStorage Include="Service References\ProxyPorSesion\" />
+    <WCFMetadataStorage Include="Service References\ProxySingle\" />
     <WCFMetadataStorage Include="Service References\ProxyWCFNormal\" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +267,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ProxyPorSesion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxySingle\ServicioSingle.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxySingle\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxySingle\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProxySingle\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
