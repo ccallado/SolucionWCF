@@ -92,6 +92,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="StockProductos">
+      <soap:operation soapAction="http://com.miempresa.wwww/IServicioNormal/StockProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_IServicioNormalAux" type="i1:IServicioNormalAux">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />

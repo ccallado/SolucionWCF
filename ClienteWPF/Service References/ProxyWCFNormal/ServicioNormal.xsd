@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://com.miempresa.wwww" elementFormDefault="qualified" targetNamespace="http://com.miempresa.wwww" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:50564/ServicioNormal.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF" />
+  <xs:import schemaLocation="http://localhost:50564/ServicioNormal.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -124,6 +125,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="IncrementaContadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockProductos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockProductosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StockProductosResult" nillable="true" type="q8:ArrayOfArrayOfanyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

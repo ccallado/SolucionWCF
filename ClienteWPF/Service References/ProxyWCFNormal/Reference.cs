@@ -862,6 +862,8 @@ namespace ClienteWPF.ProxyWCFNormal {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.RelatedEnd))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfOrder7Zl6WYH6))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfProduct7Zl6WYH6))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[][]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityKeyMember[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Category))]
@@ -1465,6 +1467,35 @@ namespace ClienteWPF.ProxyWCFNormal {
         System.IAsyncResult BeginIncrementaContador(System.AsyncCallback callback, object asyncState);
         
         int EndIncrementaContador(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://com.miempresa.wwww/IServicioNormal/StockProductos", ReplyAction="http://com.miempresa.wwww/IServicioNormal/StockProductosResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfCategory7Zl6WYH6))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfOrder7Zl6WYH6))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityReferenceOfProduct7Zl6WYH6))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[][]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Category))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Product[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Product))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order_Detail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order_Detail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.Order[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.ClaseError))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClienteWPF.ProxyWCFNormal.enumTipoError))]
+        object[][] StockProductos(int IdCategoria);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://com.miempresa.wwww/IServicioNormal/StockProductos", ReplyAction="http://com.miempresa.wwww/IServicioNormal/StockProductosResponse")]
+        System.IAsyncResult BeginStockProductos(int IdCategoria, System.AsyncCallback callback, object asyncState);
+        
+        object[][] EndStockProductos(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1644,6 +1675,25 @@ namespace ClienteWPF.ProxyWCFNormal {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class StockProductosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public StockProductosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public object[][] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((object[][])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServicioNormalClient : System.ServiceModel.ClientBase<ClienteWPF.ProxyWCFNormal.IServicioNormal>, ClienteWPF.ProxyWCFNormal.IServicioNormal {
         
         private BeginOperationDelegate onBeginGetDataDelegate;
@@ -1700,6 +1750,12 @@ namespace ClienteWPF.ProxyWCFNormal {
         
         private System.Threading.SendOrPostCallback onIncrementaContadorCompletedDelegate;
         
+        private BeginOperationDelegate onBeginStockProductosDelegate;
+        
+        private EndOperationDelegate onEndStockProductosDelegate;
+        
+        private System.Threading.SendOrPostCallback onStockProductosCompletedDelegate;
+        
         public ServicioNormalClient() {
         }
         
@@ -1736,6 +1792,8 @@ namespace ClienteWPF.ProxyWCFNormal {
         public event System.EventHandler<CategoriaPorIDconPausaCompletedEventArgs> CategoriaPorIDconPausaCompleted;
         
         public event System.EventHandler<IncrementaContadorCompletedEventArgs> IncrementaContadorCompleted;
+        
+        public event System.EventHandler<StockProductosCompletedEventArgs> StockProductosCompleted;
         
         public string GetData(int value) {
             return base.Channel.GetData(value);
@@ -2187,6 +2245,56 @@ namespace ClienteWPF.ProxyWCFNormal {
                 this.onIncrementaContadorCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnIncrementaContadorCompleted);
             }
             base.InvokeAsync(this.onBeginIncrementaContadorDelegate, null, this.onEndIncrementaContadorDelegate, this.onIncrementaContadorCompletedDelegate, userState);
+        }
+        
+        public object[][] StockProductos(int IdCategoria) {
+            return base.Channel.StockProductos(IdCategoria);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginStockProductos(int IdCategoria, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginStockProductos(IdCategoria, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public object[][] EndStockProductos(System.IAsyncResult result) {
+            return base.Channel.EndStockProductos(result);
+        }
+        
+        private System.IAsyncResult OnBeginStockProductos(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int IdCategoria = ((int)(inValues[0]));
+            return this.BeginStockProductos(IdCategoria, callback, asyncState);
+        }
+        
+        private object[] OnEndStockProductos(System.IAsyncResult result) {
+            object[][] retVal = this.EndStockProductos(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnStockProductosCompleted(object state) {
+            if ((this.StockProductosCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.StockProductosCompleted(this, new StockProductosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void StockProductosAsync(int IdCategoria) {
+            this.StockProductosAsync(IdCategoria, null);
+        }
+        
+        public void StockProductosAsync(int IdCategoria, object userState) {
+            if ((this.onBeginStockProductosDelegate == null)) {
+                this.onBeginStockProductosDelegate = new BeginOperationDelegate(this.OnBeginStockProductos);
+            }
+            if ((this.onEndStockProductosDelegate == null)) {
+                this.onEndStockProductosDelegate = new EndOperationDelegate(this.OnEndStockProductos);
+            }
+            if ((this.onStockProductosCompletedDelegate == null)) {
+                this.onStockProductosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnStockProductosCompleted);
+            }
+            base.InvokeAsync(this.onBeginStockProductosDelegate, new object[] {
+                        IdCategoria}, this.onEndStockProductosDelegate, this.onStockProductosCompletedDelegate, userState);
         }
     }
 }

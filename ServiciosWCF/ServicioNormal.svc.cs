@@ -161,5 +161,52 @@ namespace ServiciosWCF
         {
             return DateTime.Now ;
         }
+
+        //Implementado
+        public List<object[]> StockProductos(int IdCategoria)
+        {
+            using (northwindEntities ne = new northwindEntities())
+            {
+                ne.ContextOptions.LazyLoadingEnabled = false;
+
+                string cad = "SELECT p.ProductName, p.UnitsInStock " + 
+                             "FROM northwindEntities.Products as p " +
+                             "WHERE p.CategoryID = @cat";
+
+                System.Data.Objects.ObjectQuery<System.Data.Common.DbDataRecord> consulta;
+                consulta = new System.Data.Objects.ObjectQuery<System.Data.Common.DbDataRecord>
+                                (cad, ne, System.Data.Objects.MergeOption.NoTracking);
+                consulta.Parameters.Add(new System.Data.Objects.ObjectParameter("cat", IdCategoria));
+                
+                List<object[]> lista = new List<object[]>();
+                if (consulta.Count()> 0)
+                {
+                    object[] reg;
+
+                    //Vamos a pasar los nombres de los campos, como primer registro
+                    foreach(var x in consulta)
+                    {
+                        //Si todavía no he añadido ningún registro a la lista pongo la cabecera
+                        if (lista.Count == 0)
+                        {
+                            //Añadimos los nombres de los campos
+                            reg = new object[x.FieldCount];
+                            for (int i = 0; i < x.FieldCount; i++)
+                                reg[i] = x.GetName(i);
+                            lista.Add(reg);
+                        }
+                        reg = new object[x.FieldCount];
+                        //Esto se puede hacer más fácilmente
+                        //for (int i = 0; i < x.FieldCount; i++)
+                        //    reg[i] = x[i];
+                        x.GetValues(reg);
+
+                        lista.Add(reg);
+                    }
+                }
+                
+                return lista;
+            }
+        }
     }
 }

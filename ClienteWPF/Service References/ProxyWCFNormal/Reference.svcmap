@@ -22,6 +22,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="ServicioNormal2.wsdl" MetadataType="Wsdl" ID="094ac454-2705-4d58-9b83-7d189562b6a3" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?wsdl=wsdl1" />
+    <MetadataFile FileName="ServicioNormal4.xsd" MetadataType="Schema" ID="3391ee6b-382d-4862-a235-17f4bc379f3d" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd6" />
     <MetadataFile FileName="ServicioNormal2.xsd" MetadataType="Schema" ID="7b6a4c49-98b8-48c5-a040-b86212f55ab5" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd3" />
     <MetadataFile FileName="ServicioNormal3.xsd" MetadataType="Schema" ID="d8935315-ba60-4106-a7ab-1647c343338a" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd5" />
     <MetadataFile FileName="ServicioNormal21.xsd" MetadataType="Schema" ID="e2842994-db25-4971-8ce3-c5277a3a81de" SourceId="1" SourceUrl="http://localhost:50564/ServicioNormal.svc?xsd=xsd4" />

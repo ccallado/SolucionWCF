@@ -221,6 +221,9 @@
     <None Include="Service References\ProxyWCFNormal\ServicioNormal3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ProxyWCFNormal\ServicioNormal4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\ProxyWS\Category.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>

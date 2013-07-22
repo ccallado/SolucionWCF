@@ -7,6 +7,7 @@
       <xsd:import schemaLocation="http://localhost:50564/ServicioNormal.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF" />
       <xsd:import schemaLocation="http://localhost:50564/ServicioNormal.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
       <xsd:import schemaLocation="http://localhost:50564/ServicioNormal.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:50564/ServicioNormal.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServicioNormal_GetData_InputMessage">
@@ -69,6 +70,12 @@
   <wsdl:message name="IServicioNormal_IncrementaContador_OutputMessage">
     <wsdl:part name="parameters" element="tns:IncrementaContadorResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioNormal_StockProductos_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockProductos" />
+  </wsdl:message>
+  <wsdl:message name="IServicioNormal_StockProductos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockProductosResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioNormal">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/GetData" message="tns:IServicioNormal_GetData_InputMessage" />
@@ -107,6 +114,10 @@
     <wsdl:operation name="IncrementaContador">
       <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/IncrementaContador" message="tns:IServicioNormal_IncrementaContador_InputMessage" />
       <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/IncrementaContadorResponse" message="tns:IServicioNormal_IncrementaContador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockProductos">
+      <wsdl:input wsaw:Action="http://com.miempresa.wwww/IServicioNormal/StockProductos" message="tns:IServicioNormal_StockProductos_InputMessage" />
+      <wsdl:output wsaw:Action="http://com.miempresa.wwww/IServicioNormal/StockProductosResponse" message="tns:IServicioNormal_StockProductos_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

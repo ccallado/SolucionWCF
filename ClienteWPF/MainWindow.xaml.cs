@@ -245,7 +245,7 @@ namespace ClienteWPF
                     {
                         //El método es void
                         //El parametro de número de IdCategoria lo puedo pasar en UserState
-                        s.CategoriaPorIDconPausaAsync(i, 5, i );
+                        s.CategoriaPorIDconPausaAsync(i, 5, i);
                     }
                 }
             }
@@ -273,8 +273,31 @@ namespace ClienteWPF
                 string cad = "";
                 for (int i = 1; i <= 5; i++)
                 {
-                    cad += "Llamada " + i + " - Contador: " + 
+                    cad += "Llamada " + i + " - Contador: " +
                            s.IncrementaContador() + "\n";
+                }
+
+                MessageBox.Show(cad);
+            }
+        }
+
+        //Stock Productos (WCF)
+        private void button12_Click(object sender, RoutedEventArgs e)
+        {
+            //Crear objeto de contexto
+            using (ProxyWCFNormal.ServicioNormalClient s =
+                    new ProxyWCFNormal.ServicioNormalClient())
+            {
+                var datos = s.StockProductos(int.Parse(textBox7.Text));
+
+                string cad = "";
+                foreach (var x in datos)
+                { 
+                    cad += "\n";
+                    for (int i = 0; i < x.Count(); i++)
+                    {
+                        cad += x[i].ToString() + "\t";
+                    }
                 }
 
                 MessageBox.Show(cad);

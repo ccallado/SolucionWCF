@@ -55,6 +55,11 @@ namespace ServiciosWCF
         //Metodo que incrementa uno a uno una variable definida al instanciar el servicio
         [OperationContract]
         int IncrementaContador();
+
+        //Devolución de un dbDataRecord (Originalmente no se puede)
+        //Vamos a devolver una lista de array de objetos
+        [OperationContract]
+        List<object[]> StockProductos(int IdCategoria);
     }
 
 
