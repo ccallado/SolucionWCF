@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaseCategoria.cs" />
+    <Compile Include="ClaseDatos.cs" />
     <Compile Include="ClaseError.cs" />
     <Compile Include="ClaseServicios.cs" />
     <Compile Include="IServicioGeneral.cs" />
