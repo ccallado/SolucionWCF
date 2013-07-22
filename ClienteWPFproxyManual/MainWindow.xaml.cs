@@ -23,5 +23,15 @@ namespace ClienteWPFproxyManual
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            using (ServicioNormalClient s = new ServicioNormalClient())
+            {
+                var c = s.CategoriaPorID(int.Parse(textBox1.Text));
+                if (c != null)
+                    MessageBox.Show(c.CategoryName);
+            }
+        }
     }
 }

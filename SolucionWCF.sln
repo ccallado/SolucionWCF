@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteWPF", "ClienteWPF\Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiciosWCF", "ServiciosWCF\ServiciosWCF.csproj", "{3254009C-AE60-4EE4-9CFD-057CB17643A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteWPFproxyManual", "ClienteWPFproxyManual\ClienteWPFproxyManual.csproj", "{52F6B995-F26A-4225-AB70-1866967CC1A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,16 @@ Global
 		{3254009C-AE60-4EE4-9CFD-057CB17643A5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3254009C-AE60-4EE4-9CFD-057CB17643A5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3254009C-AE60-4EE4-9CFD-057CB17643A5}.Release|x86.ActiveCfg = Release|Any CPU
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Debug|x86.ActiveCfg = Debug|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Debug|x86.Build.0 = Debug|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Release|Any CPU.ActiveCfg = Release|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Release|Mixed Platforms.Build.0 = Release|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Release|x86.ActiveCfg = Release|x86
+		{52F6B995-F26A-4225-AB70-1866967CC1A3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
